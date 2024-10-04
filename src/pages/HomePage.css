@@ -1,0 +1,217 @@
+@font-face {
+    font-family: 'Figtree-Bold';
+    src: url('scr/Fonts/Figtree-Bold.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Figtree-Medium';
+    src: url('scr/Fonts/Figtree-Medium.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Figtree-Light';
+    src: url('scr/Fonts/Figtree-Light.ttf') format('truetype');
+}
+
+body{
+    background-color: #ebebeb;
+}
+.contenido-pestana-item {
+    display: none;
+}
+
+.contenido-pestana-item.mostrar {
+    display: block;
+}
+
+.contenedor-padre {
+    background-color: #ebebeb;
+    color: #212529;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 1000px;
+    height: 500px;
+    padding: 60px;
+}
+
+.contenedor-izquierdo h1 {
+    margin: 0;
+    font-size: 3.5rem;
+    font-family: 'Figtree-Bold', sans-serif;
+}
+
+.contenedor-izquierdo h2 {
+    margin-top: 15px;
+    font-size: 2.5rem;
+    font-family: 'Figtree-Medium', sans-serif;
+}
+
+.contenedor-derecho {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.circulo-azul {
+    background-color: #00063d;
+    display: flex;
+    flex-shrink: 0;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.3s ease, filter 0.3s ease;
+    position: absolute; 
+    bottom: -50px; 
+    right: -50px; 
+    z-index: 1;    
+}
+
+.circulo-azul:hover {
+    transform: scale(1.2);
+    rotate: 5deg;
+}
+
+.imagenInicio {
+    width: 100%;
+}
+
+.pestanas {
+    background: #f26419;
+    padding-top: 1rem;
+    position: relative; /* Aseguramos que la sección de pestañas tenga z-index */
+    z-index: 2;         /* Colocar por encima del círculo */
+}
+
+.pestanas .contenedor-pes {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 1rem;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding-top: 1.5rem;
+}
+
+.pestanas p {
+    font-size: 1.2rem;
+    padding-top: 0.5rem;
+    font-family: 'Figtree-Light', sans-serif;
+}
+
+.pestanas .contenedor-pes>div:hover {
+    color: #ebebeb;
+    cursor: pointer;
+}
+
+.pestana-borde {
+    border-bottom: #f26419 4px solid;
+    border-color: #ebebeb;
+}
+
+.contenido-pestana {
+    padding: 3rem 0;
+    background: #ebebeb;
+    color: #212529;
+}
+
+#pestana-1-contenido,
+#pestana-2-contenido,
+#pestana-3-contenido {
+    display: none;
+    opacity: 0;
+}
+
+.mostrar {
+    display: block !important;
+    opacity: 1 !important;
+    transition: all 1000 ease-in;
+}
+
+#pestana-1-contenido .pestana-1-contenido-interno,
+#pestana-2-contenido .pestana-2-contenido-interno,
+#pestana-3-contenido .pestana-3-contenido-interno {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 2rem;
+    align-items: center;
+    justify-content: center;
+}
+
+.contenedor-pes {
+    max-width: 70%;
+    margin: auto;
+    overflow: hidden;
+    padding: 0 2rem;
+}
+
+.texto-pes {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    font-family: 'Figtree-Light', sans-serif;
+}
+
+@media (max-width: 768px) {
+    .contenedor-padre {
+        flex-direction: column;
+        padding: 20px;
+        margin: 20px;
+        position: relative; /* Aseguramos que el contenedor siga siendo relativo */
+    }
+
+    .contenedor-izquierdo {
+        text-align: center; /* Centramos el texto */
+    }
+
+    .contenedor-izquierdo h1 {
+        font-size: 2.5rem;
+    }
+
+    .contenedor-izquierdo h2 {
+        font-size: 2rem;
+    }
+
+    .circulo-azul {
+        position: static; 
+        width: 300px; 
+        height: 300px;
+        margin-top: 20px; 
+    }
+    .contenedor-derecho {
+        flex: 1;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .circulo-azul {
+        width: 200px;
+        height: 200px;
+    }
+
+    .logo-b {
+        width: 50%;
+        height: 50%;
+    }
+    .pestanas p {
+        font-size: 1rem;
+        padding-top: 0.3rem;
+    }
+
+    .contenedor-pes i svg {
+        width: 80%;
+        height: 80%;
+    }
+
+    .texto-pes {
+        font-size: 100%;
+    }
+
+    #pestana-1-contenido .pestana-1-contenido-interno,
+    #pestana-2-contenido .pestana-2-contenido-interno,
+    #pestana-3-contenido .pestana-3-contenido-interno {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+}
