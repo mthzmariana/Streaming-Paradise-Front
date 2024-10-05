@@ -44,7 +44,7 @@ const HomePage = () => {
             <h2>Prueba el verdadero paraíso del entretenimiento en línea</h2>
           </div>
           <div className="circulo-azul">
-            <LogoConRelleno className="logo-b"/>
+            <LogoConRelleno className="logo-b" />
           </div>
         </div>
       </section>

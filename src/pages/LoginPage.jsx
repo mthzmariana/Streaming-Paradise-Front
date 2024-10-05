@@ -1,13 +1,21 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { TextField, Button, Box } from '@mui/material';
 import axios from 'axios';
 
-const LoginPage = () => {
+const LoginPage = ({handleFooter}) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const navigate = useNavigate();
+
+  useEffect(() => {
+    handleFooter(false);
+
+    return () => {
+      handleFooter(true);
+    };
+  }, [handleFooter]);
 
   const handleLogin = async (e) => {
     e.preventDefault();
