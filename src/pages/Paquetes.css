@@ -1,19 +1,12 @@
-:root {
-    --color01: #ffffff;
-    --color02: #f26419;
-    --color02Hover: #402068;
-    --color08: #f6a02d;
-    --color09: #ebebeb;
-    --color13: #0a6acb;
-}
-
 @media (max-width: 768px) {
+    
     .container-paq {
         flex-direction: column;
         align-items: center;
+        margin-bottom: 100px;
     }
 
-    .card {
+    .cardp {
         margin-bottom: 20px;
         width: 90%;
     }
@@ -22,11 +15,11 @@
 .container-paq {
     display: flex;
     justify-content: center;
-    align-items: flex-start;
-    flex-wrap: wrap;
+    min-height: 100vh;
+    margin-top: 100px;
 }
 
-.card {
+.cardp {
     width: 300px;
     height: 450px;
     border-radius: 15px 15px 15px 15px;
@@ -34,9 +27,9 @@
     position: relative;
     transition: transform 0.4s, box-shadow 0.4s;
 
-    display: flex;
+    /* display: flex; */
     flex-direction: column;
-    justify-content: space-between;
+    /* justify-content: space-between; */
     align-items: center;
     margin: 30px;
 }
@@ -59,18 +52,18 @@
     position: absolute;
 }
 
-.card.novato::before {
+.cardp.novato::before {
     content: none;
 }
 
-.card:hover {
+.cardp:hover {
     box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
     transform: scale(1.04);
 }
 
-.card::before {
-    background-color: var(--color01);
-    color: var(--color02);
+.cardp::before {
+    background-color: #ffffff;;
+    color: #f26419;
     padding: 30px 36px 10px;
 
     transform: translate(calc(41px + 45px), -45px) rotate(45deg);
@@ -85,7 +78,7 @@
     color: #0a6acb;
 }
 
-.card_info {
+.cardp_info {
     width: 100%;
     height: 130px;
 
@@ -102,9 +95,9 @@
     align-items: center;
 }
 
-.card_info::before {
+.cardp_info::before {
     background: rgb(242, 100, 25);
-    background: linear-gradient(0deg, rgba(242, 100, 25, 1) 0%, rgba(246, 160, 45, 1) 100%);
+    background: linear-gradient(0deg, rgba(242, 100, 25, 1) 60%, rgba(246, 160, 45, 1) 100%);
 
     width: 100%;
     height: 100%;
@@ -117,26 +110,26 @@
     z-index: -1;
 }
 
-.card_name {
-    color: var(--color01);
+.cardp_sub {
+    color: #ffffff;;
     margin-bottom: 10px;
     font-size: 32px;
     font-weight: 400;
     letter-spacing: 1px;
 }
 
-.card_price {
-    color: var(--color01);
+.cardp_price {
+    color: #ffffff;;
     font-size: 22px;
     font-weight: 400;
 }
 
-.card_priceSpan {
-    color: var(--color01);
+.cardp_priceSpan {
+    color: #ffffff;;
 }
 
-.card_content {
-    background-color: var(--color09);
+.cardp_content {
+    background-color: #ebebeb;
     width: 100%;
     height: calc(100% - 130px);
 
@@ -144,35 +137,33 @@
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    padding: 20px;
 }
 
-.card_rows {
+.cardp_rows {
     width: 100%;
     flex-grow: 1;
 }
 
-.card_row {
-    color: var(--color13);
-    width: 100%;
-    padding: 10px 0;
+.cardp_row {
+    color: #0a6acb;
+    padding: 10px 20px 10px 20px;
     text-align: center;
-    border-bottom: 3px solid var(--color01);
+    border-bottom: 3px solid #ffffff;;
 }
 
-.card_row:nth-of-type(odd) {
+.cardp_row:nth-of-type(odd) {
     background-color: var(--color0);
 }
 
-.card_link {
-    color: var(--color01);
-    background-color: var(--color08);
+.button_link {
+    color: #ffffff;;
+    background-color: #f6a02d;
     padding: 10px 15px;
     margin: 20px 0;
     text-decoration: none;
     border-radius: 50px;
 }
 
-.card_link:hover {
-    background-color: var(--color02Hover) !important;
+.button_link:hover {
+    background-color: #402068!important;
 }

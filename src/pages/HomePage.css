@@ -62,7 +62,7 @@
 }
 
 .circulo-azul:hover {
-	transform: scale(1.2);
+	transform: scale(1.5);
 	rotate: 5deg;
 }
 
@@ -71,17 +71,12 @@
     height: 60%;
 }
 
-:root {
-	--color-principal: #f26419;
-	--color-fondo: #f26419;
-}
-
 .imagenInicio {
 	width: 100%;
 }
 
 .pestanas {
-	background: var(--color-fondo);
+	background: #f26419;
 	padding-top: 1rem;
 }
 
@@ -107,7 +102,7 @@
 }
 
 .pestana-borde {
-	border-bottom: var(--color-principal) 4px solid;
+	border-bottom: #f26419 4px solid;
 	border-color: #ffffff;
 }
 

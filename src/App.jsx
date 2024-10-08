@@ -1,4 +1,4 @@
-// import React from "react";
+import "./App.css";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import React, { useState } from "react";
 import HomePage from "./pages/HomePage";
@@ -18,16 +18,13 @@ function App() {
 
   return (
     <Router>
-      <div>
       <Routes>
-        <Route path="/home" element={<HomePage />} />
+        <Route path="/" element={<HomePage />} />
         <Route path="/login" element={<LoginPage handleFooter={setFooterFlag} />} />
         <Route path="/registro" element={<Registro handleFooter={setFooterFlag} />} />
         <Route path="/PaypalPage" element={<PaypalPage />} />
         <Route path="/about" element={<AboutPage />} />
-        {/* <Route path="/profile" element={<UserProfile />} /> */}
         <Route path="/upload" element={<UploadVideoPage />} />
-        {/* <Route path="/subscription" element={<SubscriptionPage />} /> */}
         <Route path="/admin" element={<AdminPage />} />
         <Route path="/catalogo" element={<Catalogo />} />
         <Route path="/paquetes" element={<Paquetes />} />
@@ -38,7 +35,6 @@ function App() {
           }
         />
       </Routes>
-      </div>
       {footerFlag && <Footer />}
     </Router>
   );
