@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import "./HomePage.css";
-import ImgHome1 from "../assets/imagenes/ImgHome1.png";
-import ImgHome2 from "../assets/imagenes/ImgHome2.png";
-import ImgHome3 from "../assets/imagenes/ImgHome3.png";
-import CarritoIcon from "../icons/carritoicon.jsx";
-import TarjetaIcon from "../icons/tarjetaicon.jsx";
-import ComprarIcon from "../icons/compraricon.jsx";
-import LogoConRelleno from "../icons/logoconrelleno.jsx";
+import "./HomeComponent.css";
+import ImgHome1 from "../../assets/imagenes/ImgHome1.png";
+import ImgHome2 from "../../assets/imagenes/ImgHome2.png";
+import ImgHome3 from "../../assets/imagenes/ImgHome3.png";
+import CarritoIcon from "../../icons/carritoicon.jsx";
+import TarjetaIcon from "../../icons/tarjetaicon.jsx";
+import ComprarIcon from "../../icons/compraricon.jsx";
+import LogoConRelleno from "../../icons/logoconrelleno.jsx";
 
 const pestanas = [
   {
@@ -32,7 +32,7 @@ const pestanas = [
   },
 ];
 
-const HomePage = () => {
+const HomeComponent = () => {
   const [pestanaActiva, setPestanaActiva] = useState("pestana-1");
 
   return (
@@ -91,4 +91,4 @@ const HomePage = () => {
   );
 };
 
-export default HomePage;
+export default HomeComponent;

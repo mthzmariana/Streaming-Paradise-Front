@@ -1,6 +1,6 @@
 import React from 'react';
 
-const UploadVideoPage = () => {
+const AboutComponent = () => {
   return (
     <div>
       <h1>About Us</h1>
@@ -9,4 +9,4 @@ const UploadVideoPage = () => {
   );
 };
 
-export default UploadVideoPage;
+export default AboutComponent;

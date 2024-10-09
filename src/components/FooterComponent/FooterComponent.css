@@ -1,4 +1,4 @@
-@font-face {
+/* @font-face {
     font-family: 'Figtree-Bold';
     src: url('scr/Fonts/Figtree-Bold.ttf') format('truetype');
 }
@@ -11,7 +11,7 @@
 @font-face {
     font-family: 'Figtree-Light';
     src: url('scr/Fonts/Figtree-Light.ttf') format('truetype');
-}
+} */
 
 .footer h1{
     font-family: 'Figtree-Medium', sans-serif;

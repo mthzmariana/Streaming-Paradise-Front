@@ -1,0 +1,73 @@
+/* Estilos generales */
+.sidebar-filtros {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px;
+    width: 150px;
+    background-color: #00063d;
+    height: 100vh;
+    transition: width 0.3s ease;
+  }
+  
+  .filter-options {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+  }
+  
+  .filter-button {
+    width: 100%;
+    padding: 10px 15px;
+    margin: 10px 0;
+    background-color: #f26419;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  .filter-button:hover {
+    background-color: #f6a02d;
+  }
+  
+  /* Botón para expandir/contraer el sidebar */
+  .expand-button {
+    background-color: #f26419;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    padding: 10px;
+    margin-bottom: 10px;
+    cursor: pointer;
+  }
+  
+  /* Ocultar el botón en pantallas grandes (PC) */
+  @media (min-width: 768px) {
+    .expand-button {
+      display: none;
+    }
+  }
+  
+  /* Mostrar y centrar el botón solo en pantallas pequeñas (móviles) */
+  @media (max-width: 767px) {
+    .expand-button {
+      display: block;
+      align-self: center; /* Centra el botón */
+    }
+  
+    .sidebar-filtros {
+      width: 20px;
+    }
+  
+    .sidebar-filtros.expanded {
+      width: 150px;
+    }
+  
+    .sidebar-filtros.collapsed .filter-options {
+      display: none;
+    }
+  }
+  

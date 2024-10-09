@@ -1,7 +1,7 @@
 import React, { useState, useContext, useEffect } from 'react';
-import './Registro.css';
+import './RegistroComponent.css';
 
-const Registro = ({handleFooter}) => {
+const RegistroComponent = ({handleFooter}) => {
 
   useEffect(() => {
     handleFooter(false);
@@ -19,4 +19,4 @@ const Registro = ({handleFooter}) => {
   );
 };
 
-export default Registro;
+export default RegistroComponent;
