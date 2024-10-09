@@ -1,67 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
 import "./SidebarFiltros.css";
 
 const SidebarFiltros = () => {
+  const [isExpanded, setIsExpanded] = useState(false);
+
+  const toggleSidebar = () => {
+    setIsExpanded(!isExpanded);
+  };
+
   return (
-    <div className="sidebar">
-      <div className="facet">
-        <div className="facet-title">Género</div>
-        <div id="genres">
-          <label>
-            <input type="checkbox" /> Acción
-          </label>
-          <label>
-            <input type="checkbox" /> Aventura
-          </label>
-          <label>
-            <input type="checkbox" /> Drama
-          </label>
-        </div>
-      </div>
-
-      <div className="facet">
-        <div className="facet-title">Creador</div>
-        <div id="creators">
-          <label>
-            <input type="checkbox" /> Creador 1
-          </label>
-          <label>
-            <input type="checkbox" /> Creador 2
-          </label>
-        </div>
-      </div>
-
-      <div className="facet">
-        <div className="facet-title">Temas</div>
-        <div id="themes">
-          <label>
-            <input type="checkbox" /> Tema 1
-          </label>
-          <label>
-            <input type="checkbox" /> Tema 2
-          </label>
-        </div>
-      </div>
-
-      <div className="facet">
-        <div className="facet-title">País</div>
-        <div id="country">
-          <label>
-            <input type="checkbox" /> País 1
-          </label>
-          <label>
-            <input type="checkbox" /> País 2
-          </label>
-        </div>
-      </div>
-
-      <div className="facet">
-        <div className="facet-title">Nuevos</div>
-        <div id="new">
-          <label>
-            <input type="checkbox" /> Últimos lanzamientos
-          </label>
-        </div>
+    <div className={`sidebar-filtros ${isExpanded ? "expanded" : "collapsed"}`}>
+      <button className="expand-button" onClick={toggleSidebar}>
+        {isExpanded ? "<<" : ">>"}
+      </button>
+      <div className="filter-options">
+        <button className="filter-button">Creadores</button>
+        <button className="filter-button">Tema</button>
+        <button className="filter-button">País</button>
+        <button className="filter-button">Nuevos</button>
       </div>
     </div>
   );

@@ -1,9 +1,18 @@
-import React from "react";
+import React, { useEffect } from "react";
 import SidebarFiltros from "./SidebarFiltros";
 import ContenidoCards from "./ContenidoCards";
 import "./Catalogo.css";
 
-const Catalogo = () => {
+const Catalogo = ({ handleFooter }) => {
+
+  useEffect(() => {
+    handleFooter(false); 
+
+    return () => {
+      handleFooter(true);
+    };
+  }, [handleFooter]);
+
   const peliculas = [
     {
       title: "Movie 1",
@@ -23,16 +32,6 @@ const Catalogo = () => {
 
   return (
     <div className="container-pel">
-      <div className="top">
-        <div className="search-button">
-          <i className="fa fa-search"></i>
-        </div>
-        <div className="input-container">
-          <input type="text" placeholder="Buscar películas" />
-          <div id="stats">{peliculas.length} películas encontradas</div>
-        </div>
-      </div>
-
       <div className="content">
         <SidebarFiltros />
         <ContenidoCards peliculas={peliculas} />

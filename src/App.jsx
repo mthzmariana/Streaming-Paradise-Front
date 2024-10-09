@@ -22,18 +22,18 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/login" element={<LoginPage handleFooter={setFooterFlag} />} />
         <Route path="/registro" element={<Registro handleFooter={setFooterFlag} />} />
-        <Route path="/PaypalPage" element={<PaypalPage />} />
+        <Route path="/paypalPage" element={<PaypalPage />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/upload" element={<UploadVideoPage />} />
         <Route path="/admin" element={<AdminPage />} />
-        <Route path="/catalogo" element={<Catalogo />} />
-        <Route path="/paquetes" element={<Paquetes />} />
+        <Route path="/catalogo" element={<Catalogo handleFooter={setFooterFlag} />} />
         <Route
           path="/video"
           element={
             <VideoPlayer videoUrl="https://www.youtube.com/watch?v=dQw4w9WgXcQ" />
           }
         />
+        <Route path="/paquetes" element={<Paquetes />} />
       </Routes>
       {footerFlag && <Footer />}
     </Router>
