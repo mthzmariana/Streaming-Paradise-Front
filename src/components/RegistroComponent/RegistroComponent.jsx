@@ -1,15 +1,17 @@
 import React, { useState, useContext, useEffect } from 'react';
 import './RegistroComponent.css';
 
-const RegistroComponent = ({handleFooter}) => {
+const RegistroComponent = ({handleNavbar, handleFooter}) => {
 
   useEffect(() => {
+    handleNavbar(false);
     handleFooter(false);
 
     return () => {
+      handleNavbar(true);
       handleFooter(true);
     };
-  }, [handleFooter]);
+  }, [handleNavbar, handleFooter]);
 
   return (
     <div>
