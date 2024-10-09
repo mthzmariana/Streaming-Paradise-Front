@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import "./SidebarFiltros.css";
+import "./SidebarCatalogoComponent.css";
 
-const SidebarFiltros = () => {
+const SidebarCatalogoComponent = () => {
   const [isExpanded, setIsExpanded] = useState(false);
 
   const toggleSidebar = () => {
@@ -23,4 +23,4 @@ const SidebarFiltros = () => {
   );
 };
 
-export default SidebarFiltros;
+export default SidebarCatalogoComponent;

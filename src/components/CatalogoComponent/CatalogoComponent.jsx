@@ -1,9 +1,9 @@
 import React, { useEffect } from "react";
-import SidebarFiltros from "./SidebarFiltros";
-import ContenidoCards from "./ContenidoCards";
-import "./Catalogo.css";
+import SidebarFiltros from "../SidebarCatalogoComponent/SidebarCatalogoComponent";
+import ContenidoComponent from "../ContenidoComponent/ContenidoComponent";
+import "./CatalogoComponent.css";
 
-const Catalogo = ({ handleFooter }) => {
+const CatalogoComponent = ({ handleFooter }) => {
 
   useEffect(() => {
     handleFooter(false); 
@@ -34,10 +34,10 @@ const Catalogo = ({ handleFooter }) => {
     <div className="container-pel">
       <div className="content">
         <SidebarFiltros />
-        <ContenidoCards peliculas={peliculas} />
+        <ContenidoComponent peliculas={peliculas} />
       </div>
     </div>
   );
 };
 
-export default Catalogo;
+export default CatalogoComponent;

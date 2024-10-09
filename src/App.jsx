@@ -1,17 +1,17 @@
 import "./App.css";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import React, { useState } from "react";
-import HomePage from "./pages/HomePage";
-import LoginPage from "./pages/LoginPage";
-import Registro from "./pages/Registro";
-import AboutPage from "./pages/AboutPage";
-import Catalogo from "./pages/Catalogo";
-import Paquetes from "./pages/Paquetes";
-import PaypalPage from "./pages/PaypalPage";
-import UploadVideoPage from "./pages/UploadVideoPage";
-import AdminPage from "./pages/AdminPage";
-import VideoPlayer from "./pages/VideoPlayer";
-import Footer from "./pages/Footer";
+import HomeComponent from "./components/HomeComponent/HomeComponent";
+import LoginComponent from "./components/LoginComponent/LoginComponent";
+import RegistroComponent from "./components/RegistroComponent/RegistroComponent";
+import AboutComponent from "./components/AboutComponent/AboutComponent";
+import CatalogoComponent from "./components/CatalogoComponent/CatalogoComponent";
+import PaquetesComponent from "./components/PaquetesComponent/PaquetesComponent";
+import PaypalPage from "./components/PaypalComponent/PaypalPage";
+import UploadVideoComponent from "./components/UploadVideoComponent/UploadVideoComponent";
+import AdminComponent from "./components/AdminComponent/AdminComponent";
+import VideoPlayer from "./components/VideoPlayerComponent/VideoPlayerComponent";
+import FooterComponent from "./components/FooterComponent/FooterComponent";
 
 function App() {
   const [footerFlag, setFooterFlag] = useState(true);
@@ -19,23 +19,23 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/login" element={<LoginPage handleFooter={setFooterFlag} />} />
-        <Route path="/registro" element={<Registro handleFooter={setFooterFlag} />} />
+        <Route path="/" element={<HomeComponent />} />
+        <Route path="/login" element={<LoginComponent handleFooter={setFooterFlag} />} />
+        <Route path="/registro" element={<RegistroComponent handleFooter={setFooterFlag} />} />
         <Route path="/paypalPage" element={<PaypalPage />} />
-        <Route path="/about" element={<AboutPage />} />
-        <Route path="/upload" element={<UploadVideoPage />} />
-        <Route path="/admin" element={<AdminPage />} />
-        <Route path="/catalogo" element={<Catalogo handleFooter={setFooterFlag} />} />
+        <Route path="/about" element={<AboutComponent />} />
+        <Route path="/upload" element={<UploadVideoComponent />} />
+        <Route path="/admin" element={<AdminComponent />} />
+        <Route path="/catalogo" element={<CatalogoComponent handleFooter={setFooterFlag} />} />
         <Route
           path="/video"
           element={
             <VideoPlayer videoUrl="https://www.youtube.com/watch?v=dQw4w9WgXcQ" />
           }
         />
-        <Route path="/paquetes" element={<Paquetes />} />
+        <Route path="/paquetes" element={<PaquetesComponent />} />
       </Routes>
-      {footerFlag && <Footer />}
+      {footerFlag && <FooterComponent />}
     </Router>
   );
 }

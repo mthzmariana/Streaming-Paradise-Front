@@ -1,7 +1,7 @@
 import React from 'react';
-import './VideoStyles.css'; // Asegúrate de importar los estilos
+import './VideoPlayerComponent.css'; // Asegúrate de importar los estilos
 
-const VideoPlayer = ({ videoUrl }) => {
+const VideoPlayerComponent = ({ videoUrl }) => {
   // Función para extraer el ID del video de YouTube de la URL
   const getYouTubeVideoId = (url) => {
     const regExp = /^.*(youtu\.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
@@ -29,5 +29,5 @@ const VideoPlayer = ({ videoUrl }) => {
   );
 };
 
-export default VideoPlayer;
+export default VideoPlayerComponent;
 ``

@@ -1,10 +1,10 @@
 import React from 'react';
-import './Paquetes.css';
-import Paq1 from '../assets/imagenes/Paq1.png';
-import Paq2 from '../assets/imagenes/Paq2.png';
-import Paq3 from '../assets/imagenes/Paq3.png';
+import './PaquetesComponent.css';
+import Paq1 from '../../assets/imagenes/Paq1.png';
+import Paq2 from '../../assets/imagenes/Paq2.png';
+import Paq3 from '../../assets/imagenes/Paq3.png';
 
-const Paquetes = () => {
+const PaquetesComponent = () => {
   return (
     <div className='container-paq'>
 
@@ -57,4 +57,4 @@ const Paquetes = () => {
   );
 };
 
-export default Paquetes;
+export default PaquetesComponent;

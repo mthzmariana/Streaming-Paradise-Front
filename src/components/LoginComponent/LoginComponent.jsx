@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { TextField, Button, Box } from '@mui/material';
 import axios from 'axios';
 
-const LoginPage = ({handleFooter}) => {
+const LoginComponent = ({handleFooter}) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
@@ -70,4 +70,4 @@ const LoginPage = ({handleFooter}) => {
   );
 };
 
-export default LoginPage;
+export default LoginComponent;

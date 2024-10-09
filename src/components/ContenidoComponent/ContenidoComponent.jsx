@@ -1,7 +1,7 @@
 import React from "react";
-import "./ContenidoCards.css";
+import "./ContenidoComponent.css";
 
-const ContenidoCards = ({ peliculas }) => {
+const ContenidoComponent = ({ peliculas }) => {
   return (
     <div className="canvas">
       <div id="hits">
@@ -44,4 +44,4 @@ const ContenidoCards = ({ peliculas }) => {
   );
 };
 
-export default ContenidoCards;
+export default ContenidoComponent;
