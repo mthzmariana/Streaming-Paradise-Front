@@ -1,0 +1,138 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f26419;
+    padding: 10px 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    box-sizing: border-box; 
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.navbar-title {
+    color: #ffffff;
+    font-family: 'Figtree-Medium', sans-serif;
+    margin-left: 10px;
+    font-size: 20px;
+}
+
+.nav-links-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.nav-links {
+    display: flex;
+}
+
+.center-links {
+    justify-content: center;
+    flex-grow: 1;
+}
+
+.right-links {
+    justify-content: flex-end;
+}
+
+.nav-links a {
+    color: #ffffff;
+    text-decoration: none;
+    padding: 10px 15px;
+    margin: 0px;
+    display: block;
+    font-size: 20px;
+    font-family: 'Figtree-Medium', sans-serif;
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.navbar a:hover {
+    transform: scale(1.2);
+    filter: drop-shadow(0 10px 5px rgba(0, 0, 0, 0.125));
+}
+
+.MiniLogo {
+    background-color: #f26419;
+    border: none;
+    padding: 0px;
+    margin: 0px;
+    cursor: pointer;
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.MiniLogo:hover {
+    transform: scale(1.125);
+}
+
+.MiniLogo svg {
+    width: 70px;
+    height: 70px;
+    vertical-align: middle;
+}
+
+/* Ícono de menú para dispositivos móviles */
+.mobile-menu-icon {
+    display: none;
+    font-size: 30px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+    .mobile-menu-icon {
+        display: block;
+    }
+
+    .nav-links-container {
+        position: absolute;
+        top: 100%;
+        /* Ajuste para que el menú aparezca justo debajo del navbar */
+        left: 0;
+        width: 100%;
+        background-color: #f26419;
+        height: 0;
+        overflow: hidden;
+        transition: height 0.3s ease-in-out;
+        display: flex;
+        justify-content: center;
+        /* Centrar verticalmente */
+        align-items: center;
+        /* Centrar horizontalmente */
+        flex-direction: column;
+        /* Alinear verticalmente */
+    }
+
+    .nav-links-container.active {
+        height: calc(100vh - 50px);
+        /* Altura completa cuando está activo */
+    }
+
+    .nav-links {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        /* Centrar los enlaces en el contenedor */
+        width: 100%;
+    }
+
+    .nav-links a {
+        padding: 10px 0;
+        text-align: center;
+        width: 100%;
+        /* Ocupar todo el ancho para centrado */
+    }
+
+    .center-links {
+        justify-content: center;
+        flex-grow: 0;
+    }
+}

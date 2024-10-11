@@ -1,9 +1,9 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from 'react';
 import SidebarFiltros from "../SidebarCatalogoComponent/SidebarCatalogoComponent";
 import ContenidoComponent from "../ContenidoComponent/ContenidoComponent";
 import "./CatalogoComponent.css";
 
-const CatalogoComponent = ({ handleFooter }) => {
+const CatalogoComponent = ({handleFooter }) => {
 
   useEffect(() => {
     handleFooter(false); 

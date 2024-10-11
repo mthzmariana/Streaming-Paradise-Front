@@ -3,19 +3,21 @@ import { useNavigate } from 'react-router-dom';
 import { TextField, Button, Box } from '@mui/material';
 import axios from 'axios';
 
-const LoginComponent = ({handleFooter}) => {
+const LoginComponent = ({handleNavbar, handleFooter}) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const navigate = useNavigate();
 
   useEffect(() => {
+    handleNavbar(false);
     handleFooter(false);
 
     return () => {
+      handleNavbar(true);
       handleFooter(true);
     };
-  }, [handleFooter]);
+  }, [handleNavbar, handleFooter]);
 
   const handleLogin = async (e) => {
     e.preventDefault();
