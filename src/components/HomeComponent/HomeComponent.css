@@ -59,7 +59,6 @@
 	justify-content: center;
 	align-items: center;
 	transition: transform 0.3s ease, filter 0.3s ease;
-	z-index: 1001;
 }
 
 .circulo-azul:hover {
