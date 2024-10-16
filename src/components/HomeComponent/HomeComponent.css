@@ -13,6 +13,13 @@
     src: url('scr/Fonts/Figtree-Light.ttf') format('truetype');
 } */
 
+.seccion-oferta {
+	margin: 150px 0;
+}
+
+.seccion-cupon {
+	margin: 200px 0;
+}
 .contenido-pestana-item {
 	display: none;
 }
@@ -49,10 +56,10 @@
 	align-items: center;
 }
 
-.circulo-azul{
+.circulo-azul {
 	background-color: #00063d;
 	display: flex;
-    flex-shrink: 0;
+	flex-shrink: 0;
 	width: 400px;
 	height: 400px;
 	border-radius: 50%;
@@ -66,9 +73,9 @@
 	rotate: 5deg;
 }
 
-.logo-b{
-    width: 60%;
-    height: 60%;
+.logo-b {
+	width: 60%;
+	height: 60%;
 }
 
 .imagenInicio {
