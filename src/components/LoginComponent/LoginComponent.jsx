@@ -1,14 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { TextField, Button, Box } from '@mui/material';
-import axios from 'axios';
+import "./LoginComponent.css";
+import Logo from "../../assets/imagenes/Logo.png";
+
 
 const LoginComponent = ({handleNavbar, handleFooter}) => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [error, setError] = useState('');
-  const navigate = useNavigate();
-
+  
   useEffect(() => {
     handleNavbar(false);
     handleFooter(false);
@@ -18,57 +14,32 @@ const LoginComponent = ({handleNavbar, handleFooter}) => {
       handleFooter(true);
     };
   }, [handleNavbar, handleFooter]);
-
-  const handleLogin = async (e) => {
-    e.preventDefault();
-    try {
-      const response = await axios.post('http://localhost:5000/users/login', { email, password });
-      const { token, user } = response.data;
-      localStorage.setItem('token', token);
-      localStorage.setItem('user', JSON.stringify(user));
-      navigate('/profile');
-    } catch (err) {
-      setError('Credenciales inválidas');
-    }
-  };
-
+  
   return (
-    <Box
-      display="flex"
-      flexDirection="column"
-      alignItems="center"
-      justifyContent="center"
-      minHeight="100vh"
-    >
-      <h2>Login</h2>
-      <form onSubmit={handleLogin}>
-        <Box mb={2}>
-          <TextField
-            label="Email"
-            variant="outlined"
-            fullWidth
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
-        </Box>
-        <Box mb={2}>
-          <TextField
-            label="Password"
-            type="password"
-            variant="outlined"
-            fullWidth
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
-        </Box>
-        <Button variant="contained" color="primary" type="submit" fullWidth>
-          Login
-        </Button>
-        {error && <p style={{ color: 'red' }}>{error}</p>}
-      </form>
-    </Box>
+    <div className="login-body">
+    <div className="login-page">
+      <div className="login-container">
+        <div className="left-side">
+          <img src={Logo} alt="Logo" className="logo" />
+        </div>
+        <div className="right-side">
+          <h2 className="title">Streaming Paradise</h2>
+        <div className="inner-container">
+          <form className="form">
+            <input type="email" placeholder="Email" className="input" />
+            <input type="password" placeholder="Password" className="input" />
+            <button type="submit" className="login-button">
+              Iniciar Sesion
+            </button>
+            <p className="register-text">
+              ¿No tienes cuenta? <a href="/">Regístrate aquí</a>
+            </p>
+          </form>
+          </div>
+        </div>
+      </div>
+      </div>
+      </div>
   );
 };
 

@@ -1,0 +1,149 @@
+.Rlogin-body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background-color: #12193f;
+}
+
+.Rlogin-page {
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: inherit;
+    overflow: hidden;
+}
+
+.Rlogin-container {
+    margin-top: 20px;
+    margin-bottom: 50px;
+    display: flex;
+    background-color: #ebebeb;
+    border-radius: 50px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    /* width: 80%; */
+    margin-bottom: 20px;
+    flex-direction: row;
+}
+
+.Rinner-container {
+    display: flex;
+    justify-content: center;
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 40px;
+    box-shadow: 0 4px 10px rgba(7, 4, 4, 0.3);
+    width: 45%;
+    margin-left: 50px;
+    margin-bottom: 30px;
+}
+
+.Rleft-side {
+    display: flex;
+    align-items: center;
+    justify-content: flex-left;
+    background: linear-gradient(180deg, #ff9b3e, #ff4500);
+    border-radius: 50px 500px 500px 50px;
+    width: 50%;
+}
+
+.Rlogo {
+    max-width: 90%;
+    height: auto;
+}
+
+.Rright-side {
+    padding: 19px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex: 2;
+}
+
+.Rtitle {
+    font-size: 50px;
+    color: #ff7b00;
+    margin-bottom: 20px;
+    margin-left: 90px;
+    text-align: left;
+    justify-content: center;
+}
+
+.Rform {
+    display: flex;
+    flex-direction: column;
+}
+
+.Rinput {
+    margin-bottom: 10px;
+    padding: 7px;
+    font-size: 15px;
+    border: 1px solid #ccc;
+    background-color: #ebebeb;
+    border-radius: 50px;
+}
+
+.Rlogin-button {
+    font-size: 16px;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    padding: 7px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.Rlogin-button:hover {
+    background-color: #0056b3;
+}
+
+.Rregister-text {
+    margin-top: 10px;
+    font-size: 14px;
+    text-align: center;
+}
+
+.Rregister-text a {
+    color: #ff4500;
+    text-decoration: none;
+}
+
+.Rregister-text a:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+    .Rlogin-container {
+        flex-direction: column;
+        align-items: center;
+        width: 90%;
+    }
+
+    .Rleft-side {
+        width: 100%;
+        border-radius: 50px 50px 0 0;
+        margin-bottom: 20px;
+    }
+
+    .Rlogo {
+        margin: 0 auto;
+        max-width: 70%;
+    }
+
+    .Rright-side {
+        width: 100%;
+        padding: 20px;
+        border-radius: 0 0 50px 50px;
+    }
+
+    .Rtitle {
+        font-size: 30px;
+        margin-left: 0;
+        text-align: center;
+    }
+}

@@ -13,7 +13,6 @@ const NavbarComponent = () => {
         </button>
         <span className="navbar-title">Streaming Paradise</span>
       </div>
-      {/* Contenedor para el menú de navegación */}
       <div className="nav-links-container">
         <div className="nav-links center-links">
           <a href="/catalogo">Contenido</a>
