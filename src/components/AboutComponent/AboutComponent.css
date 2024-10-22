@@ -1,14 +1,15 @@
 .about-page {
     font-family: Arial, sans-serif;
-    color: #001D71;
+    color: #00063d;
     min-height: 100vh;
     margin-top: 80px;
+    margin-bottom: 200px;
 }
 
 .intro-section {
     text-align: center;
     padding: 2rem 1rem;
-    background-color: #001D71;
+    background-color: #00063d;
     color: white;
 }
 
@@ -28,7 +29,7 @@
     flex-wrap: wrap;
     justify-content: space-around;
     padding: 2rem 1rem;
-    background-color: #f4f4f4;
+    
 }
 
 .info-card {
@@ -38,7 +39,7 @@
     text-align: center;
     padding: 1rem;
     border: 1px solid #ddd;
-    border-radius: 8px;
+    border-radius: 30px;
     background-color: white;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s ease-in-out;
@@ -63,15 +64,15 @@
 .info-card img {
     max-width: 100%;
     height: auto;
-    border-radius: 8px;
+    border-radius: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* Responsividad para pantallas pequeñas */
 @media (max-width: 768px) {
+
     .info-card {
         flex: 1 1 100%;
         max-width: 100%;
-        margin: 1rem 0;
+        margin: 15px;
     }
 }

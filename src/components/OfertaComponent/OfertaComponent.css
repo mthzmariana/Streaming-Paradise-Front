@@ -69,3 +69,42 @@
   height: auto;
   transform: scaleX(-1);
 }
+
+@media (max-width: 768px) {
+  .offer-bar {
+    flex-direction: column;
+    transform: scale(1); 
+    max-width: 100%; 
+    margin: 10px 15px;
+  }
+
+  .offer-bar-content {
+    max-width: 100%;
+    padding: 10px;
+  }
+
+  .offer-bar-content h2 {
+    font-size: 22px; 
+  }
+
+  .offer-bar-content p {
+    font-size: 18px; 
+  }
+
+  .timer span {
+    padding: 12px;
+    font-size: 20px; 
+  }
+
+  .timer small {
+    font-size: 14px; 
+  }
+
+  .offer-bar-image {
+    max-width: 20%;
+    position: relative;
+    transform: none; 
+    align-self: flex-end; 
+    margin-top: 10px;
+  }
+}
