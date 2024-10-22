@@ -1,0 +1,120 @@
+.contacto-body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f9f9f9;
+    margin-top: 50px;
+}
+
+.contacto-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+    gap: 40px;
+}
+
+.contacto-left {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.Claqueta-img {
+    max-width: 80%;
+    height: auto;
+    margin: 0 20px;
+}
+
+.contacto-right {
+    flex: 1;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin: 0 20px;
+    padding: 40px;
+    background-color: white;
+    border-radius: 30px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.contact-form:hover {
+    transform: scale(1.05); 
+}
+
+.contact-form label {
+    font-weight: bold;
+}
+
+.contact-form input {
+    padding: 10px;
+    border: 1px solid #ccc; 
+    border-radius: 30px;
+    transition: border-color 0.3s; 
+}
+
+.contact-form input:focus {
+    border-color: #0a6acb; 
+    outline: none; 
+}
+
+.contact-form textarea {
+    padding: 20px;
+    border: 1px solid #ccc; 
+    border-radius: 20px;
+    transition: border-color 0.3s;
+    height: 100px; 
+    resize: none; 
+}
+
+.contact-form textarea:focus {
+    border-color: #0a6acb;
+    outline: none; 
+}
+
+.contact-form button {
+    padding: 8px 40px; 
+    border: none;
+    border-radius: 30px;
+    background-color: #00063d;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s; 
+    margin: 0 auto;
+    display: block;  
+}
+
+.contact-form button:hover {
+    background-color: #00063d;
+    transform: scale(1.25);
+}
+
+
+@media (max-width: 768px) {
+
+    .contacto-body {
+        justify-content: center;
+        align-items: center;
+        margin-top: 100px;
+    }
+
+    .contacto-container {
+        flex-direction: column;
+    }
+
+    .Claqueta-img {
+        max-width: 60%; 
+        margin: 0 auto; 
+    }
+
+    .contact-form {
+
+        margin: 0 auto; 
+        padding: 20px; 
+    }
+}

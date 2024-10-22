@@ -1,0 +1,167 @@
+.login-body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    background-color: #12193f;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-container {
+    display: flex;
+    background-color: #ebebeb;
+    border-radius: 50px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    width: 900px;
+    height: 400px;
+    overflow: hidden;
+}
+
+.log-left-side {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    background: linear-gradient(180deg, #ff9b3e, #ff4500);
+    padding: 20px;
+    border-radius: 50px 500px 500px 50px;
+    width: 40%;
+}
+
+.log-logo {
+    max-width: 90%;
+    height: auto;
+}
+
+.log-right-side {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 40px;
+    text-align: center;
+    width: 60%;
+}
+
+.log-title {
+    font-size: 36px;
+    color: #ff7b00;
+    margin-bottom: 20px;
+}
+
+.log-form-container {
+    background-color: #ffffff;
+    padding: 30px;
+    margin-bottom: 30px;
+    border-radius: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.log-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.log-input {
+    margin-bottom: 15px;
+    padding: 12px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    background-color: #f0f0f0;
+    border-radius: 25px;
+}
+
+.log-input:focus {
+    border-color: #0a6acb;
+    outline: none;
+}
+
+.login-button {
+    padding: 12px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    width: 150px;
+    align-self: center;
+}
+
+.login-button:hover {
+    background-color: #0056b3;
+}
+
+.register-text {
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+.register-text a {
+    color: #ff4500;
+    text-decoration: none;
+}
+
+.register-text a:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+
+    .login-body {
+        padding: 20px;
+    }
+
+    .login-container {
+        flex-direction: column; 
+        width: 100%; 
+        height: auto; 
+        margin: 0 auto;
+        border-radius: 30px; 
+        justify-content: center;
+    }
+
+    .log-left-side {
+        display: block;
+        width: 100%;
+        justify-content: left; 
+        border-radius: 30px 30px 0 0; 
+        padding: 10px;
+    }
+
+    .log-logo {
+        max-width: 70%; 
+        margin: 0 auto;
+    }
+
+    .log-right-side {
+        width: 88%; 
+        padding: 20px;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .log-title {
+        font-size: 28px; 
+        margin-bottom: 15px;
+    }
+
+    .log-form-container {
+        padding: 20px;
+    }
+
+    .log-input {
+        padding: 10px; 
+        font-size: 14px; 
+    }
+
+    .login-button {
+        padding: 10px;
+        font-size: 14px; 
+        width: 150px; 
+    }
+
+    .register-text {
+        font-size: 12px; 
+    }
+}
+
