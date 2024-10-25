@@ -86,7 +86,7 @@ const PaquetesComponent = () => {
         </div>
       )}
 
-      {/* Mostrar detalles de la compra después de que se complete */}
+      {/* Mostrar detalles de la compra después de que se complete 
       {purchaseDetails && (
         <div className="purchase-details">
           <h3>Detalles de la Compra</h3>
@@ -96,7 +96,7 @@ const PaquetesComponent = () => {
           <p><strong>Estado:</strong> {purchaseDetails.status}</p>
           <p><strong>Monto:</strong> {purchaseDetails.purchase_units[0].amount.value} {purchaseDetails.purchase_units[0].amount.currency_code}</p>
         </div>
-      )}
+      )} */}
 
       {/* Paquete Novato */}
       <div className='cardp novato'>
