@@ -11,7 +11,7 @@ import PaquetesComponent from "./components/PaquetesComponent/PaquetesComponent"
 import PaypalPage from "./components/PaypalComponent/PaypalPage";
 import UploadVideoComponent from "./components/UploadVideoComponent/UploadVideoComponent";
 import AdminComponent from "./components/AdminComponent/AdminComponent";
-import VideoPlayer from "./components/VideoPlayerComponent/VideoPlayerComponent";
+import VideoPlayerComponent from "./components/VideoPlayerComponent/VideoPlayerComponent";
 import NavbarComponent from "./components/NavbarComponent/NavbarComponent";
 import FooterComponent from "./components/FooterComponent/FooterComponent";
 
@@ -35,7 +35,7 @@ function App() {
         <Route
           path="/video"
           element={
-            <VideoPlayer videoUrl="https://www.youtube.com/watch?v=dQw4w9WgXcQ" />
+            <VideoPlayerComponent videoUrl="https://www.youtube.com/watch?v=dQw4w9WgXcQ" />
           }
         />
         <Route path="/paquetes" element={<PaquetesComponent />} />
