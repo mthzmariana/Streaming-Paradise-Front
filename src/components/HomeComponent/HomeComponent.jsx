@@ -7,7 +7,7 @@ import CarritoIcon from "../../icons/carritoicon.jsx";
 import TarjetaIcon from "../../icons/tarjetaicon.jsx";
 import ComprarIcon from "../../icons/compraricon.jsx";
 import LogoConRelleno from "../../icons/logoconrelleno.jsx";
-import OfertaComponent from "../../components/OfertaComponent/OfertaComponent";
+import HomeOfertaComponent from "../../components/HomeOfertaComponent/HomeOfertaComponent";
 import CuponComponent from "../../components/CuponComponent/CuponComponent";
 
 const pestanas = [
@@ -40,7 +40,7 @@ const HomeComponent = () => {
   return (
     <div>
       <section className="seccion-oferta">
-        <OfertaComponent />
+        <HomeOfertaComponent />
       </section>
       <section>
         <div className="contenedor-padre">
