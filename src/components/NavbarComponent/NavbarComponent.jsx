@@ -56,7 +56,7 @@ function NavbarComponent() {
               <LogoConRelleno className="logo-a" />
             </a>
           </button>
-          <span className="navbar-title">Streaming Paradise</span>
+          
         </div>
         <div className="nav-links-container">
           <div className="nav-links center-links">

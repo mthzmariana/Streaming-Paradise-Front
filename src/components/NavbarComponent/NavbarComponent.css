@@ -63,7 +63,7 @@
     background-color: #f26419;
     border: none;
     padding: 0px;
-    margin: 0px;
+    margin: 0px 0px 0px 30px;
     cursor: pointer;
     transition: transform 0.3s ease, filter 0.3s ease;
 }
@@ -73,8 +73,8 @@
 }
 
 .MiniLogo svg {
-    width: 70px;
-    height: 70px;
+    width: 45px;
+    height: 45px;
     vertical-align: middle;
 }
 
@@ -144,6 +144,9 @@
         justify-content: center;
         flex-grow: 0;
     }
+
+    .MiniLogo {
+        margin: 0px 0px 0px 10px;
 }
 .profile-dropdown {
     position: relative;
@@ -170,9 +173,9 @@
     transition: background-color 0.3s ease;
   }
   
-  .dropdown-menu a:hover {
+  /* .dropdown-menu a:hover {
     
-  }
+  } */
   
   .profile-name {
     cursor: pointer;
@@ -186,4 +189,4 @@
     transform: scale(1.2);
     filter: drop-shadow(0 10px 5px rgba(0, 0, 0, 0.125));
   }
-  
+} 
