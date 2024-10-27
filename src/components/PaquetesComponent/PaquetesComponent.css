@@ -27,9 +27,7 @@
     position: relative;
     transition: transform 0.4s, box-shadow 0.4s;
 
-    /* display: flex; */
     flex-direction: column;
-    /* justify-content: space-between; */
     align-items: center;
     margin: 30px;
 }
@@ -207,15 +205,16 @@
   }
   
   .buy-button {
-    background-color: #28a745;
-    color: white;
-    padding: 10px 20px;
+    color: #ffffff;;
+    background-color: #f6a02d;
+    padding: 10px 15px;
+    margin: 20px 0;
+    text-decoration: none;
+    border-radius: 50px;
     border: none;
-    border-radius: 5px;
-    cursor: pointer;
   }
   
   .buy-button:hover {
-    background-color: #218838;
+    background-color: #00063d;
   }
   
