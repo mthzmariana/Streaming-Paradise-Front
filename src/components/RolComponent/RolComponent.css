@@ -1,129 +1,19 @@
-/* .offer-bar {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: linear-gradient(to right, #ff8c00, #ffa500);
-  border-radius: 15px;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-  max-width: 800px;
-  margin: 20px auto;
-  position: relative;
-  transform: scale(1.2);
-  transform-origin: center;
-  transition: transform 0.3s ease; 
-}
-
-.offer-bar:hover {
-  transform: scale(1.35);
-}
-
-.offer-bar-content {
-  color: white;
-  text-align: center;
-  max-width: 60%;
-  z-index: 1;
-}
-
-.offer-bar-content h2 {
-  margin: 0;
-  font-size: 24px;
-  font-weight: bold;
-  padding-top: 30px;
-}
-
-.offer-bar-content p {
-  margin: 10px 0;
-}
-
-.timer {
-  display: flex;
-  gap: 10px;
-  padding-bottom: 30px;
-  justify-content: center;
-}
-
-.timer span {
-  background: rgba(255, 255, 255, 0.2);
-  border-radius: 8px;
-  padding: 10px;
-  font-size: 16px;
-}
-
-.timer small {
-  display: block;
-  font-size: 12px;
-  color: rgba(255, 255, 255, 0.8);
-}
-
-.offer-bar-image {
-  position: absolute;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
-  max-width: 24%;
-  z-index: 0;
-}
-
-.offer-bar-image img {
-  width: 100%;
-  height: auto;
-  transform: scaleX(-1);
-}
-
-@media (max-width: 768px) {
-  .offer-bar {
-    flex-direction: column;
-    transform: scale(1); 
-    max-width: 100%; 
-    margin: 10px 15px;
-  }
-
-  .offer-bar-content {
-    max-width: 100%;
-    padding: 10px;
-  }
-
-  .offer-bar-content h2 {
-    font-size: 22px; 
-  }
-
-  .offer-bar-content p {
-    font-size: 18px; 
-  }
-
-  .timer span {
-    padding: 12px;
-    font-size: 20px; 
-  }
-
-  .timer small {
-    font-size: 14px; 
-  }
-
-  .offer-bar-image {
-    max-width: 20%;
-    position: relative;
-    transform: none; 
-    align-self: flex-end; 
-    margin-top: 10px;
-  }
-} */
 body {
   background: #ffffff;
   font-family: "Roboto", sans-serif;
 }
 
-.App-oferta {
+.App-roles {
   text-align: center;
 }
 
-.title-oferta {
+.title-roles {
   color: black;
   font-size: 35px;
   margin-top: 50px;
 }
 
-.table-container-oferta {
+.table-container-roles {
   width: 85%;
   margin: 50px auto; /* Agrega margen superior para bajar la tabla */
   max-width: 1000px;
@@ -131,7 +21,7 @@ body {
   justify-content: center; /* Centra la tabla */
 }
 
-.table-oferta {
+.table-roles {
   background-color: #fff;
   text-align: left;
   border-collapse: collapse;
@@ -159,14 +49,14 @@ tr:hover td {
   color: black;
 }
 
-.add-oferta-button-container {
+.add-roles-button-container {
   text-align: right;
   margin-bottom: 10px;
   margin-right: 5%;
   
 }
 
-.add-oferta-button {
+.add-roles-button {
   padding: 10px 20px;
   background-color: #00063D;
   color: white;
@@ -175,7 +65,7 @@ tr:hover td {
   cursor: pointer;
 }
 
-.add-oferta-button:hover {
+.add-roles-button:hover {
   background-color: #00063D;
 }
 
@@ -241,13 +131,13 @@ tr:hover td {
   border-radius: 10px;
 }
 
-.confirm-button-oferta {
+.confirm-button-roles {
   background-color: #F6A02D; 
   color: white;
   border: none;
 }
 
-.cancel-button-oferta {
+.cancel-button-roles {
   background-color: #00063D; 
   color: white;
   border: none;

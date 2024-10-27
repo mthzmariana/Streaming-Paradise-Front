@@ -1,0 +1,102 @@
+.App-product {
+  text-align: center;
+}
+
+.title-product {
+  color: black;
+  font-size: 35px;
+  margin-top: 40px;
+}
+
+.table-container-product {
+  width: 80%;
+  margin: 0 auto;
+  max-width: 1000px;
+}
+
+.color-tabla-product {
+  background-color: #ffffff;
+  border-bottom: 1.5px solid #21262b;
+  color: black;
+}
+
+table {
+  text-align: center;
+  border-collapse: collapse;
+  width: 100%;
+  border: 1px solid #ccc;
+}
+
+th, td {
+  padding: 15px;
+  border: 1px solid #ddd;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.edit-icon, .delete-icon {
+  font-size: 24px;
+  cursor: pointer;
+  margin: 0 5px;
+}
+
+.edit-icon {
+  color: #F6A02D;
+}
+
+.delete-icon {
+  color: #dc3545;
+}
+
+.paginationButtons {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.paginationButtons a {
+  margin: 0 5px;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #0A6ACB;
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.paginationActive a {
+  background-color: #343a40;
+}
+
+.paginationDisabled a {
+  background-color: #ddd;
+  cursor: not-allowed;
+}
+
+.add-product-button-container {
+  text-align: right;
+  margin-bottom: 10px;
+  margin-right: 4%;
+}
+
+.add-product-button {
+  padding: 10px 20px;
+  background-color: #00063D;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.confirm-button-producto {
+  background-color: #F6A02D; 
+  color: white;
+  border: none;
+}
+
+.cancel-button-producto {
+  background-color: #00063D; 
+  color: white;
+  border: none;
+}

@@ -1,0 +1,72 @@
+.login-page-editarroles {
+  margin-top: 90px;
+  display: flex;
+  justify-content: flex-end; /* Alinea el contenido hacia la derecha */
+  padding-left: 200px; /* Ajusta según el espacio que desees a la derecha */
+}
+
+.formR-editarroles {
+  position: relative;
+  z-index: 1;
+  background: #FFFFFF;
+  width: 600px;
+  margin: 0 auto 100px;
+  padding: 40px;
+  text-align: center;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+  border-radius: 20px;
+}
+
+.formR-editarroles input,
+.formR-editarroles select {
+  font-family: "Roboto", sans-serif;
+  outline: 0;
+  background: #f2f2f2;
+  width: 70%;
+  border: 0px solid #797979;
+  margin: 0 0 15px;
+  padding: 15px;
+  box-sizing: border-box;
+  font-size: 14px;
+  border-radius: 20px;
+}
+
+.formR-editarroles h2 {
+  color: #00063D;
+  margin-bottom: 30px;
+  font-size: 30px;
+  font-weight: 600; /* Grosor del título ajustado */
+}
+
+.buttons-editarroles {
+  display: flex;
+  justify-content: space-between;
+}
+
+.button-regis-editarroles {
+  font-family: "Roboto", sans-serif;
+  outline: 0;
+  background: #F6A02D; /* Color de fondo para el botón "Agregar" */
+  width: 48%;
+  border: 0;
+  padding: 15px;
+  color: #FFFFFF;
+  font-size: 14px;
+  cursor: pointer;
+  border-radius: 25px; /* Botón completamente redondeado */
+  text-transform: none; /* Quitar mayúsculas */
+}
+
+.button-cancelar-editarroles {
+  font-family: "Roboto", sans-serif;
+  outline: 0;
+  background: #00063D; /* Color de fondo para el botón "Cancelar" */
+  width: 48%;
+  border: 0;
+  padding: 15px;
+  color: #FFFFFF;
+  font-size: 14px;
+  cursor: pointer;
+  border-radius: 25px; /* Botón completamente redondeado */
+  text-transform: none; /* Quitar mayúsculas */
+}

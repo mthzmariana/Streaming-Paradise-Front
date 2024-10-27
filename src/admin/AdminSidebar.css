@@ -1,0 +1,99 @@
+.admin-sidebar {
+  height: 100vh;
+  width: 16rem;
+  background-color: #00063D;
+  color: #ffffff; 
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999; /* Asegurar que esté debajo del nav */
+}
+
+.logo-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem 0;
+}
+
+.logo-img {
+  width: 100px;
+  height: auto;
+}
+
+.user-info {
+  text-align: center;
+  color: #ffffff; 
+}
+
+.admin-img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 50%;
+  width: 6rem;
+  height: 6rem;
+  object-fit: cover;
+  border: 4px solid #F26419;
+}
+
+ul {
+  list-style-type: none; 
+  padding: 0;
+  margin: 0;
+}
+
+.li-sidebar {
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  width: 100%;
+  color: #ffffff;
+  transition: background-color 0.3s;
+  font-size: 16px;
+  font-family: 'Figtree-Medium', sans-serif;
+}
+
+.li-sidebar .icon {
+  display: inline-block;
+  width: 1.5rem;
+  height: 1.5rem;
+  color: #ffffff;
+}
+
+.li-sidebar a {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  text-decoration: none; 
+  color: #ffffff; 
+}
+
+.li-sidebar a:hover {
+  color: #F26419; 
+}
+
+.li-sidebar a.active {
+  font-weight: bold;
+ 
+}
+
+.cerrar-sesion {
+  position: absolute;
+  bottom: 20px;
+  width: 100%;
+}
+
+.cerrar-sesion button {
+  background-color: transparent;
+  border: none;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 0.5rem 1rem;
+  text-align: left;
+}
+.ml-4 {
+  margin-left: 1.5rem; /* Aumentar espacio */
+}

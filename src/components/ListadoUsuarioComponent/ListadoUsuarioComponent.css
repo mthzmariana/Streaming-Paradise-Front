@@ -1,0 +1,149 @@
+body {
+  background: #ffffff;
+  font-family: "Roboto", sans-serif;
+}
+.App {
+  text-align: center;
+}
+
+.title {
+  color: black;
+  font-size: 35px;
+  margin-top: 40px;
+}
+
+.table-container {
+  width: 80%;
+  margin: 0 auto;
+  max-width: 1000px;
+  
+}
+.color-tabla {
+  background-color: #ffffff;
+  border-bottom: 1.5px solid #21262b;
+  color: black;
+
+}
+table {
+  
+  text-align: center;
+  border-collapse: collapse;
+  width: 100%;
+  border: 1px solid #ccc;
+}
+
+th, td {
+  padding: 15px;
+  border: 1px solid #ddd;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.edit-icon, .delete-icon {
+  font-size: 24px;
+  cursor: pointer;
+  margin: 0 5px;
+}
+
+.edit-icon {
+  color: #F6A02D; 
+}
+
+.delete-icon {
+  color: #dc3545; /* Color rojo para eliminar */
+}
+
+.paginationButtons {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.paginationButtons a {
+  margin: 0 5px;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #0A6ACB;
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.paginationActive a {
+  background-color: #343a40;
+}
+
+.paginationDisabled a {
+  background-color: #ddd;
+  cursor: not-allowed;
+}
+
+.add-user-button-container {
+  text-align: right;
+  margin-bottom: 10px;
+  margin-right: 4%;
+}
+
+.add-user-button {
+  padding: 10px 20px;
+  background-color: #00063D;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.modal-content {
+  text-align: center;
+}
+
+
+tr:hover td {
+  background-color: inherit !important;
+  color: inherit !important;
+  cursor: default !important;
+}
+
+.modal {
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background-color: hsl(0, 0%, 100%);
+  padding: 20px;
+  border: 1px solid #888;
+  width: 300px;
+  text-align: center;
+  border-radius: 10px;
+}
+
+.modal-content button {
+  margin: 5px;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.confirm-button-user {
+  background-color: #F6A02D; 
+  color: white;
+  border: none;
+}
+
+.cancel-button-user {
+  background-color: #00063D; 
+  color: white;
+  border: none;
+}
