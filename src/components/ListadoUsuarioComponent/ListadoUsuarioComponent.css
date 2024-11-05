@@ -1,9 +1,10 @@
-body {
+/* body {
   background: #ffffff;
   font-family: "Roboto", sans-serif;
-}
+} */
 .App {
   text-align: center;
+  margin-top: 20px;
 }
 
 .title {
@@ -147,3 +148,4 @@ tr:hover td {
   color: white;
   border: none;
 }
+

@@ -4,7 +4,7 @@
     align-items: center;
     min-height: 100vh;
     background-color: #f9f9f9;
-    margin-top: 50px;
+    margin-top: 60px;
 }
 
 .contacto-container {
@@ -100,7 +100,7 @@
     .contacto-body {
         justify-content: center;
         align-items: center;
-        margin-top: 100px;
+        margin-top: 60px;
     }
 
     .contacto-container {

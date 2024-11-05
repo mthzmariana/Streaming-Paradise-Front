@@ -37,11 +37,16 @@
 }
 
 @media (max-width: 768px) {
+
   .Cupon-bar {
-    transform: scale(1); /* Ajusta el escalado */
+    transform: scale(1); 
     max-width: 90%; 
     margin: 10px auto; 
-    padding: 10px; 
+    padding: 0px; 
+  }
+
+  .Cupon-bar:hover {
+    transform: scale(1.1); 
   }
 
   .Cupon-header {
