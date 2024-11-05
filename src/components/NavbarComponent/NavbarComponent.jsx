@@ -11,7 +11,9 @@ function NavbarComponent() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    console.log('Usuario en NavbarComponent:', user);
+    if (user) {
+      console.log('Usuario en NavbarComponent:', user);
+    }
   }, [user]);
 
   const toggleDropdown = () => {
@@ -61,6 +63,7 @@ function NavbarComponent() {
         <div className="nav-links-container">
           <div className="nav-links center-links">
             <a href="/catalogo">Contenido</a>
+            <a href="/video">El mas popular</a>
             <a href="/about">Acerca de</a>
             <a href="/contacto">Contacto</a>
           </div>
