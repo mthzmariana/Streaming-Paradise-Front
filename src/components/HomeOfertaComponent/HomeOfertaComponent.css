@@ -78,6 +78,10 @@
     margin: 10px 15px;
   }
 
+  .offer-bar:hover {
+    transform: scale(1.1);
+  }
+
   .offer-bar-content {
     max-width: 100%;
     padding: 10px;

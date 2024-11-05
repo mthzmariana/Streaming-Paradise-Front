@@ -70,7 +70,7 @@ function NavbarComponent() {
               <div className="profile-dropdown">
                 <span onClick={toggleDropdown} className="profile-name">{user.name}</span>
                 {dropdownVisible && (
-                  <div className="dropdown-menu">
+                  <div className="dropdown-menu-profile">
                     <a onClick={handleProfileClick}>Mi perfil</a>
                     <a onClick={handleLogout}>Cerrar sesión</a>
                   </div>
@@ -79,7 +79,7 @@ function NavbarComponent() {
             ) : (
               <>
                 <a href="/login">Iniciar sesión</a>
-                <a href="/registro">Registrarse</a>
+                <a className="register-link" href="/registro">Registrarse</a>
               </>
             )}
           </div>

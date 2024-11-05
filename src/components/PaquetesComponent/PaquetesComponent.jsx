@@ -140,7 +140,7 @@ const PaquetesComponent = () => {
           <div className='cardp_rows'>
             <p className='cardp_row'>Sube tus vídeos</p>
             <p className='cardp_row'>Ve tus calificaciones y comentarios</p>
-            <p className='cardp_row'>Visualiza el top 10 de creadores de Streaming Paradise</p>
+            <p className='cardp_row'>Visualiza el top 5 de mayores consumidores</p>
           </div>
           <button className="buy-button" onClick={() => setSelectedPackage('200')}>Comprar</button>
         </div>

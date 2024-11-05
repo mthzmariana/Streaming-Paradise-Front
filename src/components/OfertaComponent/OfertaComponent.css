@@ -115,6 +115,7 @@ body {
 
 .App-oferta {
   text-align: center;
+  margin: 20px;
 }
 
 .title-oferta {
@@ -251,4 +252,14 @@ tr:hover td {
   background-color: #00063D; 
   color: white;
   border: none;
+}
+
+@media (max-width: 768px) {
+  .offer-bar {
+    transform: scale(1); /* Escala base más pequeña */
+  }
+
+  .offer-bar:hover {
+    transform: scale(1.05); /* Escala menor en hover */
+  }
 }
