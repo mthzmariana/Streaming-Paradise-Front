@@ -1,0 +1,55 @@
+/* Contenedor principal */
+.top-consumidores-container {
+  width: 100%;
+  max-width: 500px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  font-family: Arial, sans-serif;
+}
+
+.top-consumidores-container h2 {
+  color: #333;
+  font-size: 1.5em;
+  margin-bottom: 15px;
+}
+
+/* Lista de consumidores */
+.consumidores-list {
+  list-style: none;
+  padding: 0;
+}
+
+.consumidor-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 15px;
+  margin-bottom: 8px;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.consumidor-rank {
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #ff6f61;
+}
+
+.consumidor-details {
+  text-align: left;
+}
+
+.consumidor-name {
+  font-size: 1em;
+  color: #333;
+}
+
+.consumidor-interactions {
+  font-size: 0.9em;
+  color: #777;
+}

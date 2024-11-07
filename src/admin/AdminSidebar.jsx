@@ -11,6 +11,7 @@ import {
   IoOptionsOutline,
   IoTicketOutline,
   IoLockClosedOutline,
+  IoPodiumOutline
 } from 'react-icons/io5';
 import axios from 'axios';
 
@@ -47,7 +48,15 @@ const AdminSidebar = () => {
       <button className="expand-button" onClick={toggleSidebar}>
         {isExpanded ? '<<' : '>>'}
       </button>
+      <br></br>
+      <br></br>
       <ul className="mt-6">
+      <li className="li-sidebar">
+          <NavLink to="/admin/" className={({ isActive }) => (isActive ? 'active' : '')}>
+            <IoPodiumOutline className="icon" />
+            <span className="ml-4">Dash</span>
+          </NavLink>
+        </li>
         <li className="li-sidebar">
           <NavLink to="/admin/usuarios/listado" className={({ isActive }) => (isActive ? 'active' : '')}>
             <IoPeopleOutline className="icon" />
@@ -89,12 +98,6 @@ const AdminSidebar = () => {
             <IoPricetagsOutline className="icon" />
             <span className="ml-4">Ofertas</span>
           </NavLink>
-        </li>
-        <li className="li-sidebar cerrar-sesion">
-          <button className="flex items-center w-full" onClick={handleLogout}>
-            <IoLogOutOutline className="icon" />
-            <span className="ml-4">Cerrar Sesión</span>
-          </button>
         </li>
       </ul>
     </div>

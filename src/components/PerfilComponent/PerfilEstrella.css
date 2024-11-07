@@ -1,0 +1,100 @@
+.perfil-estrella {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 200vh; /* Cambiar a min-height en lugar de height para permitir el crecimiento de la página */
+  background-color: #ffffff;
+  margin-top: 100px; /* Ajusta este valor si necesitas mover la tarjeta más arriba */
+  padding-bottom: 80px; /* Añadir espacio para evitar que el formulario quede cerca del footer */
+}
+
+.card-estrella {
+  display: flex;
+  align-items: center;
+  width: 1060px;
+  height: 200px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  padding: 20px;
+  gap: 20px;
+  margin-bottom: 20px; /* Añade margen inferior para separar la tarjeta del formulario */
+}
+
+.form-container-estrella {
+  width: 800px; /* Alinea el ancho del formulario con la tarjeta */
+  display: flex;
+  justify-content: center;
+}
+
+
+.perfil-imagen-estrella {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.card_info-estrella {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  text-align: left;
+}
+
+.card_title-estrella {
+  font-size: 1.4em;
+  font-weight: bold;
+  color: #333;
+}
+
+.card_description-estrella {
+  font-size: 1em;
+  color: #666;
+  margin-top: 4px;
+}
+
+
+.card_load-estrella {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  overflow: hidden;
+  flex-shrink: 0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* Sombra alrededor de la imagen */
+  border: 4px solid #ffffff; /* Borde blanco */
+}
+
+.card_info-estrella {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  text-align: left;
+}
+
+.card_buttons-estrella {
+  display: flex;
+  gap: 10px; /* Espacio entre los botones */
+  margin-top: 20px; /* Margen superior para separar los botones de la información */
+}
+
+.btn-subir-video-estrella, .btn-editar-perfil-estrella, .btn-cerrar-sesion-estrella {
+  padding: 10px 20px;
+  background-color: #00063D;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 5px; /* Espacio entre el ícono y el texto */
+  transition: background-color 0.3s;
+}
+
+.btn-subir-video-estrella:hover,
+.btn-editar-perfil-estrella:hover,
+.btn-cerrar-sesion-estrella:hover {
+  background-color: #333c66;
+}

@@ -189,7 +189,6 @@ const VideoPlayerComponent = () => {
       <div className="video-details">
         <p className="video-creator">Subido por: {creatorName}</p>
         <p className="video-description">{videoData.descripcion}</p>
-
         <h3>Ranking de estrellas</h3>
         <ReactStars
           count={5}

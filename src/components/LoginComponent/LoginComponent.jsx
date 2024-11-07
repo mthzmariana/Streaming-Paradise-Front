@@ -40,7 +40,13 @@ const LoginComponent = ({ handleNavbar, handleFooter }) => {
           navigate("/admin");
         } else if (user.idrol === 2) {
           navigate("/");
-        } else {
+        } else if (user.idrol === 3) {
+          navigate("/perfil/artista");
+        } else if (user.idrol === 4) {
+          navigate("/perfil/novato");
+        }else if (user.idrol === 5) {
+          navigate("/perfil/estrella");
+        }else {
           console.error("Rol de usuario no reconocido");
           setError("Rol de usuario no reconocido");
         }

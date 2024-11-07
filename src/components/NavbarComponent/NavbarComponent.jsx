@@ -40,9 +40,9 @@ function NavbarComponent() {
   };
 
   const handleProfileClick = () => {
-    if (user && user.idrol === '1') {
+    if (user && user.idrol === 1) {
       window.location.href = '/admin';
-    } else if (user && user.idrol === '2') {
+    } else if (user && user.idrol === 2) {
       window.location.href = '/';
     } else {
       console.warn('No se encontró un ID de rol válido para redireccionar.');

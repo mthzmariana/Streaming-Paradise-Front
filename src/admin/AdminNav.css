@@ -9,7 +9,7 @@
     left: 0;
     width: 100%;
     z-index: 1000;
-    box-sizing: border-box; 
+    box-sizing: border-box;
 }
 
 .logo-container-admin {
@@ -17,24 +17,47 @@
     align-items: center;
 }
 
-.admin-nav .user-info {
+.user-info {
     display: flex;
     align-items: center;
+    gap: 1rem; /* Espacio entre los elementos */
     position: absolute;
-    right: 4rem; 
+    right: 4rem;
 }
 
-.admin-nav .user-info img {
-    width: 2.5rem; 
-    height: 2.5rem; 
+.profile-image {
+    width: 2.5rem;
+    height: 2.5rem;
     border-radius: 50%;
-    margin-right: 0.5rem;
+    border: 1px solid #ffffff; /* Borde blanco */
 }
 
-.admin-nav .user-info span {
+.user-details span {
     color: #ffffff;
     font-weight: bold;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Figtree-Medium', sans-serif;
+}
+
+.btn-cerrar-sesion-nav {
+    display: flex;
+    align-items: center;
+    background-color: #00063d;
+    color: #ffffff;
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+    border-radius: 25px;
+    font-family: 'Figtree-Medium', sans-serif;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.btn-cerrar-sesion-nav:hover {
+    background-color: #000842;
+}
+
+.btn-cerrar-sesion-nav svg {
+    margin-right: 5px;
 }
 
 .MiniLogo-admin {
@@ -54,8 +77,4 @@
     width: 45px;
     height: 45px;
     vertical-align: middle;
-}
-.logo-container-admin {
-    display: flex;
-    align-items: center;
 }

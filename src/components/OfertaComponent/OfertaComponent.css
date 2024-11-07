@@ -110,7 +110,7 @@
 } */
 body {
   background: #ffffff;
-  font-family: "Roboto", sans-serif;
+  font-family: 'Figtree-Medium', sans-serif;
 }
 
 .App-oferta {
@@ -185,15 +185,13 @@ tr:hover td {
   cursor: pointer;
   margin: 0 5px;
 }
-
 .edit-icon {
-  color: #F6A02D; 
+  color: #F6A02D !important; /* Color naranja para editar */
 }
 
 .delete-icon {
-  color: #dc3545; /* Color rojo para eliminar */
+  color: #dc3545 !important; /* Color rojo para eliminar */
 }
-
 .paginationButtons {
   display: flex;
   justify-content: center;

@@ -77,11 +77,11 @@ tr:hover td {
 }
 
 .edit-icon {
-  color: #F6A02D; 
+  color: #F6A02D !important; /* Color naranja para editar */
 }
 
 .delete-icon {
-  color: #dc3545; /* Color rojo para eliminar */
+  color: #dc3545 !important; /* Color rojo para eliminar */
 }
 
 .paginationButtons {

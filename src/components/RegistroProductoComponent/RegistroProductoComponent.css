@@ -20,7 +20,7 @@
 .formR-agregar-producto input,
 .formR-agregar-producto select,
 .formR-agregar-producto textarea {
-  font-family: "Roboto", sans-serif;
+  font-family: 'Figtree-Medium', sans-serif;
   outline: 0;
   background: #f2f2f2;
   width: 70%;
@@ -46,7 +46,7 @@
 
 
 .button-regis-agregar-producto {
-  font-family: "Roboto", sans-serif;
+  font-family: 'Figtree-Medium', sans-serif;
   outline: 0;
   background: #F6A02D; /* Color de fondo para el botón "Agregar" */
   width: 48%;
@@ -60,7 +60,7 @@
 }
 
 .button-cancelar-agregar-producto {
-  font-family: "Roboto", sans-serif;
+  font-family: 'Figtree-Medium', sans-serif;
   outline: 0;
   background: #00063D; /* Color de fondo para el botón "Cancelar" */
   width: 48%;

@@ -24,7 +24,7 @@ import EditarCuponComponent from '../components/EditarCuponComponent/EditarCupon
 import OfertaComponent from '../components/OfertaComponent/OfertaComponent';
 import RegistroOfertaComponent from '../components/RegistroOfertaComponent/RegistroOfertaComponent';
 import EditarOfertaComponent from '../components/EditarOfertaComponent/EditarOfertaComponent';
-
+import DashboardComponent from '../components/DashboardComponent/DashboardComponent';
 
 
 const AdminTemplate = () => {
@@ -35,6 +35,7 @@ const AdminTemplate = () => {
         <AdminNav />
         <div className="admin-container">
           <Routes>
+          <Route path="/" element={<ProtectedRoute element={<DashboardComponent/>} requiredRoles={[1]} />} />
           <Route path="usuarios/listado" element={<ProtectedRoute element={<ListadoUsuarioComponent/>} requiredRoles={[1]} />} />
           <Route path="usuarios/editar/:id"  element={<ProtectedRoute element={<EditUsuarioComponent/>} requiredRoles={[1]} />} />
           <Route path="permisos/editar/:id" element={<ProtectedRoute  element={<EditarPermisoComponent/>} requiredRoles={[1]} />} />

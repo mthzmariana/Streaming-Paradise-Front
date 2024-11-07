@@ -18,6 +18,13 @@ import FooterComponent from "./components/FooterComponent/FooterComponent";
 import HomeOfertaComponent from "./components/HomeOfertaComponent/HomeOfertaComponent";
 import SinPermiso from './SinPermiso';
 import ProtectedRoute from './ProtectedRoute';
+import PerfilNovato from './components/PerfilComponent/PerfilNovato';
+import PerfilArtista from './components/PerfilComponent/PerfilArtista';
+import PerfilEstrella from './components/PerfilComponent/PerfilEstrella';
+import SubirVideoForm from './components/PerfilComponent/SubirVideoForm';
+import Calificaciones from './components/PerfilComponent/Calificaciones';
+import TopConsumidores from './components/PerfilComponent/TopConsumidores';
+import EditarUsuarioComponent from "./components/PerfilComponent/EditarUsuarioComponent";
 
 
 function App() {
@@ -50,6 +57,14 @@ function App() {
                     <Route path="/video" element={<VideoPlayerComponent videoUrl="https://www.youtube.com/watch?v=dQw4w9WgXcQ" />} />
                     <Route path="/paquetes" element={<PaquetesComponent />} />
                     <Route path="/ofertashome" element={<HomeOfertaComponent />} />
+                    <Route path="/perfil/novato" element={<PerfilNovato />} />
+                    <Route path="/perfil/artista" element={<PerfilArtista />} />
+                    <Route path="/perfil/estrella" element={<PerfilEstrella />} />
+                    <Route path="/subir-video" element={<SubirVideoForm />} />
+                    <Route path="/calificaciones" element={<Calificaciones />} />
+                    <Route path="/top-consumidores" element={<TopConsumidores />} />
+                    <Route path="/editar/:id" element={<EditarUsuarioComponent />} />
+                    
                   </Routes>
                 </div>
                 {footerFlag && <FooterComponent />}

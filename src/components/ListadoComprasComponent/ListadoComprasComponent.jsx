@@ -6,6 +6,7 @@ import ReactPaginate from 'react-paginate';
 function ListadoComprasComponent() {
   const [compras, setCompras] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState(null);
   const [currentPage, setCurrentPage] = useState(0);
   const itemsPerPage = 10;
   const pagesVisited = currentPage * itemsPerPage;
@@ -13,13 +14,16 @@ function ListadoComprasComponent() {
   useEffect(() => {
     const fetchCompras = async () => {
       try {
-        const response = await fetch('http://localhost:5000/purchase/compras'); 
+        const response = await fetch('http://localhost:5000/purchase/compras');
+        if (!response.ok) {
+          throw new Error('Error en la respuesta del servidor');
+        }
         const data = await response.json();
-        console.log(data); 
         setCompras(data);
-        setIsLoading(false);
       } catch (error) {
         console.error('Error al obtener las Compras:', error);
+        setError('Error al obtener las compras.');
+      } finally {
         setIsLoading(false);
       }
     };
@@ -27,63 +31,59 @@ function ListadoComprasComponent() {
     fetchCompras();
   }, []);
 
-  // Comentado porque no se requiere la edición de compras en este componente.
-  // const handleEditClick = (idcompra) => {
-  //   navigate(`/admin/permisos/editar/${idcompra}`);
-  // };
-
-  // const handleDeleteClick = (idcompra) => {
-  //   setItemToDelete({ idcompra });
-  // };
-
   const changePage = ({ selected }) => {
     setCurrentPage(selected);
   };
 
   const displayCompras = compras
     .slice(pagesVisited, pagesVisited + itemsPerPage)
-    .map((item) => (
-      <tr key={item.idcompra}>
-        <td>{item.idcompra}</td> {/* Muestra el ID de la compra */}
-        <td>{item.User.name}</td> {/* Muestra el nombre del usuario */}
-        <td>{item.User.email}</td> {/* Muestra el correo del usuario */}
-        <td>{item.Subscription.nombre}</td> {/* Muestra el nombre de la suscripción */}
-        <td>{item.Subscription.precio}</td> {/* Muestra el precio de la suscripción */}
-        {/* Comentando las acciones de editar y eliminar */}
-        {/* 
-        <td>
-          <IoPencilSharp className="icon edit-icon" onClick={() => handleEditClick(item.idcompra)} />
-          <IoTrashOutline className="icon delete-icon" onClick={() => handleDeleteClick(item.idcompra)} />
-        </td>
-        */}
-      </tr>
-    ));
+    .map((item) => {
+      // Aquí aseguramos que User no sea null y tomamos su nombre
+      const userName = item.User ? item.User.name : 'Usuario no disponible';
+      const userEmail = item.User ? item.User.email : 'Email no disponible';
+      const subscriptionName = item.Subscription ? item.Subscription.nombre : 'Suscripción no disponible';
+      const subscriptionPrice = item.Subscription ? item.Subscription.precio : 'Precio no disponible';
+
+      return (
+        <tr key={item.idcompra}>
+          <td>{item.idcompra}</td>
+          <td>{userName}</td>
+          <td>{userEmail}</td>
+          <td>{subscriptionName}</td>
+          <td>{subscriptionPrice}</td>
+        </tr>
+      );
+    });
 
   const pageCount = Math.ceil(compras.length / itemsPerPage);
 
   return (
     <div className="App-compras">
+      <br></br>
+      <br></br>
+      <br></br>
       <header className="App-header">
-        <br />
-        <br />
-        <br />
-        <h1 className="title-compras">Listado de Compras</h1>
+        <h1 className="title-compras"></h1>
       </header>
       <div className="table-container-compras">
         <table className="table-compras">
           <thead className="color-tabla">
             <tr>
-              <th>ID Compra</th> 
-              <th>Nombre Usuario</th> 
-              <th>Email Usuario</th> 
-              <th>Nombre Suscripción</th> 
-              <th>Precio Suscripción</th> 
+              <th>ID Compra</th>
+              <th>Nombre Usuario</th>
+              <th>Email Usuario</th>
+              <th>Nombre Suscripción</th>
+              <th>Precio Suscripción</th>
             </tr>
           </thead>
           <tbody>
             {isLoading ? (
               <tr>
                 <td colSpan="5">Cargando...</td>
+              </tr>
+            ) : error ? (
+              <tr>
+                <td colSpan="5">{error}</td>
               </tr>
             ) : (
               displayCompras

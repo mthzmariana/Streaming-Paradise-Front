@@ -1,31 +1,19 @@
 .admin-sidebar {
   height: 100vh;
-  width: 16rem;
+  width: 12rem;
   background-color: #00063D;
-  color: #ffffff;
+  color: #ffffff; 
   position: fixed;
   top: 0;
   left: 0;
   z-index: 999;
-  transition: width 0.3s ease;
-  padding-top: 80px;
-}
-
-.expand-button {
-  display: none;
-  background-color: #f26419;
-  color: white;
-  border: none;
-  border-radius: 50px;
-  padding: 10px;
-  margin: 20px auto;
-  cursor: pointer;
+  padding-top: 2rem; /* Agregar espacio superior para bajar el contenido */
 }
 
 ul {
-  list-style-type: none;
+  list-style-type: none; 
   padding: 0;
-  margin: 0;
+  margin: 1rem 0; /* Añadir un margen superior y debajo de la lista */
 }
 
 .li-sidebar {
@@ -39,6 +27,36 @@ ul {
   font-family: 'Figtree-Medium', sans-serif;
 }
 
+.logo-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem 0;
+}
+
+.logo-img {
+  width: 100px;
+  height: auto;
+}
+
+.user-info {
+  text-align: center;
+  color: #ffffff; 
+}
+
+.admin-img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 50%;
+  width: 6rem;
+  height: 6rem;
+  object-fit: cover;
+  border: 4px solid #F26419;
+}
+
+
+
 .li-sidebar .icon {
   display: inline-block;
   width: 1.5rem;
@@ -50,22 +68,26 @@ ul {
   display: flex;
   align-items: center;
   width: 100%;
-  text-decoration: none;
-  color: #ffffff;
+  text-decoration: none; 
+  color: #ffffff; 
 }
 
 .li-sidebar a:hover {
-  color: #F26419;
+  color: #F26419; 
 }
 
 .li-sidebar a.active {
   font-weight: bold;
+ 
 }
 
 .cerrar-sesion {
   position: absolute;
   bottom: 20px;
   width: 100%;
+}
+.cerrar-sesion a:hover {
+  color: #F26419; 
 }
 
 .cerrar-sesion button {
@@ -78,25 +100,6 @@ ul {
   padding: 0.5rem 1rem;
   text-align: left;
 }
-
 .ml-4 {
-  margin-left: 1.5rem;
-}
-
-@media (max-width: 767px) {
-  .expand-button {
-    display: block;
-  }
-
-  .admin-sidebar {
-    width: 50px;
-  }
-
-  .admin-sidebar.expanded {
-    width: 16rem;
-  }
-
-  .admin-sidebar:not(.expanded) ul {
-    display: none;
-  }
+  margin-left: 1.5rem; /* Aumentar espacio */
 }
