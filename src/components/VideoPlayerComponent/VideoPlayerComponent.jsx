@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useLocation } from "react-router-dom";
-import { useUser } from "../../contexts/UserContext"; // Importa el contexto de usuario
+import { useUser } from "../../contexts/UserContext";
 import ReactPlayer from "react-player";
 import ReactStars from "react-stars";
 import "./VideoPlayerComponent.css";
@@ -8,12 +8,13 @@ import "./VideoPlayerComponent.css";
 const VideoPlayerComponent = ({ random }) => {
   const { id } = useParams();
   const location = useLocation();
-  const { user } = useUser(); // Obtenemos el usuario en sesión desde el contexto
+  const { user } = useUser();
   const [videoData, setVideoData] = useState(null);
   const [creatorName, setCreatorName] = useState("");
   const [comments, setComments] = useState([]);
   const [newComment, setNewComment] = useState("");
   const [rating, setRating] = useState(0);
+  const [starAnimation, setStarAnimation] = useState(false);
 
   useEffect(() => {
     const fetchVideoData = async () => {
@@ -54,30 +55,35 @@ const VideoPlayerComponent = ({ random }) => {
 
   const handleAddComment = async () => {
     if (newComment.trim() && user) {
-      console.log("Usuario en sesión:", user); // Verificar que `user` esté disponible
       try {
         const response = await fetch("http://localhost:5000/comments", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
             idvideo: videoData.idvideo,
-            iduser: user.id, // Se usa el ID del usuario en sesión
+            iduser: user.id,
             comentario: newComment
           })
         });
 
         if (response.ok) {
           const savedComment = await response.json();
-          setComments([...comments, { ...savedComment, User: { name: user.name } }]); // Agrega el comentario con el nombre del usuario en sesión
+          const newCommentData = { ...savedComment, User: { name: user.name }, animation: true };
+          setComments([newCommentData, ...comments]);
           setNewComment("");
-        } else {
-          console.error("Error al agregar comentario:", response.statusText);
+
+          setTimeout(() => {
+            setComments((prevComments) =>
+              prevComments.map((comment) => ({
+                ...comment,
+                animation: false,
+              }))
+            );
+          }, 1000);
         }
       } catch (error) {
         console.error("Error al guardar el comentario:", error);
       }
-    } else {
-      console.error("No hay usuario en sesión o el comentario está vacío");
     }
   };
 
@@ -90,12 +96,18 @@ const VideoPlayerComponent = ({ random }) => {
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
             score: newRating,
-            iduser: user.id, // Se usa el ID del usuario en sesión
+            iduser: user.id,
             idvideo: videoData.idvideo
           })
         });
 
-        if (!response.ok) {
+        if (response.ok) {
+          setStarAnimation(true);
+
+          setTimeout(() => {
+            setStarAnimation(false);
+          }, 500);
+        } else {
           console.error("Error al guardar el puntaje:", await response.text());
         }
       } catch (error) {
@@ -111,41 +123,47 @@ const VideoPlayerComponent = ({ random }) => {
   }
 
   return (
-    <div className="video-player-component">
-      <h2 className="video-title">{videoData.title}</h2>
-      <ReactPlayer url={videoData.url} controls width="100%" />
-
-      <div className="video-details">
+    <div className="video-layout">
+      <div className="video-player-wrapper">
+        <ReactPlayer url={videoData.url} controls width="100%" className="video-player" />
+      </div>
+      <div className="video-info">
+        <h2 className="video-title">{videoData.title}</h2>
         <p className="video-creator">Subido por: {creatorName}</p>
         <p className="video-description">{videoData.descripcion}</p>
-        <h3>Ranking de estrellas</h3>
-        <ReactStars
-          count={5}
-          value={rating}
-          onChange={ratingChanged}
-          size={24}
-          half={true}
-          color2={"#ffd700"}
-        />
+        <div className={`star-rating ${starAnimation ? "animated" : ""}`}>
+          <ReactStars
+            count={5}
+            value={rating}
+            onChange={ratingChanged}
+            size={24}
+            half={true}
+            color2={"#ffd700"}
+          />
+        </div>
         <p>Calificación: {rating} estrellas</p>
       </div>
-
       <div className="comments-section">
         <h3>Comentarios</h3>
         <div className="add-comment">
           <input
             type="text"
-            placeholder="Escribe un comentario..."
+            placeholder="Agregar un comentario..."
             value={newComment}
             onChange={(e) => setNewComment(e.target.value)}
+            className="comment-input"
           />
-          <button onClick={handleAddComment}>Agregar comentario</button>
+          <button onClick={handleAddComment} className="comment-button">Comentar</button>
         </div>
         <div className="comments-list">
           {comments.length > 0 ? (
             comments.map((comment, index) => (
-              <div key={index} className="comment">
-                {comment.comentario} - <i>{comment.User?.name || "Usuario desconocido"}</i> - <small>{new Date(comment.fecha).toLocaleString()}</small>
+              <div
+                key={index}
+                className={`comment ${comment.animation ? "fade-in" : ""}`}
+              >
+                <p className="comment-user"><strong>{comment.User?.name || "Usuario desconocido"}</strong> - <span className="comment-date">{new Date(comment.fecha).toLocaleString()}</span></p>
+                <p className="comment-text">{comment.comentario}</p>
               </div>
             ))
           ) : (
