@@ -58,14 +58,16 @@ function NavbarComponent() {
               <LogoConRelleno className="logo-a" />
             </a>
           </button>
-          
+         
+
         </div>
         <div className="nav-links-container">
           <div className="nav-links center-links">
             <a href="/catalogo">Contenido</a>
-            <a href="/video">El mas popular</a>
+            <a href="/sorprendeme">Sorpréndeme</a>
+            <a href="/paquetes"> Paquetes</a>
+            <a href="/contacto">Contactonos</a>
             <a href="/about">Acerca de</a>
-            <a href="/contacto">Contacto</a>
           </div>
 
           <div className="nav-links right-links">
@@ -74,7 +76,6 @@ function NavbarComponent() {
                 <span onClick={toggleDropdown} className="profile-name">{user.name}</span>
                 {dropdownVisible && (
                   <div className="dropdown-menu-profile">
-                    <a onClick={handleProfileClick}>Mi perfil</a>
                     <a onClick={handleLogout}>Cerrar sesión</a>
                   </div>
                 )}
