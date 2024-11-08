@@ -11,7 +11,7 @@
   width: 100%;
   height: auto; /* Asegura que la altura sea automática */
   margin: 0; /* Elimina cualquier margen */
-  padding: 0; /* Elimina cualquier padding */
+  padding: 10px; /* Elimina cualquier padding */
   overflow: hidden; /* Asegura que no haya contenido extra fuera del contenedor */
 }
 

@@ -1,6 +1,6 @@
 import "./App.css";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { UserProvider } from "./contexts/UserContext";
 import AdminTemplate from './templates/AdminTemplate';
 import HomeComponent from "./components/HomeComponent/HomeComponent";
@@ -29,6 +29,15 @@ import EditarUsuarioComponent from "./components/PerfilComponent/EditarUsuarioCo
 function App() {
   const [navbarFlag, setNavbarFlag] = useState(true);
   const [footerFlag, setFooterFlag] = useState(true);
+  const [darkMode, setDarkMode] = useState(false);
+
+  const toggleTheme = () => {
+    setDarkMode(!darkMode);
+  };
+
+  useEffect(() => {
+    document.body.className = darkMode ? "dark-mode" : "light-mode";
+  }, [darkMode]);
 
   return (
     <UserProvider>
@@ -40,7 +49,7 @@ function App() {
             path="*"
             element={
               <>
-                {navbarFlag && <NavbarComponent />}
+                {navbarFlag && <NavbarComponent toggleTheme={toggleTheme} darkMode={darkMode} />}
                 <div>
                   <Routes>
                     <Route path="/" element={<HomeComponent />} />
