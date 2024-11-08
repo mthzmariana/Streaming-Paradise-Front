@@ -2,7 +2,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #f26419;
+    background: linear-gradient(to left, #ff8c00, #ffa500);
     padding: 10px 20px;
     position: fixed;
     top: 0;
@@ -10,6 +10,8 @@
     width: 100%;
     z-index: 1000;
     box-sizing: border-box;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
 }
 
 .logo-container {
@@ -55,7 +57,7 @@
 }
 
 .MiniLogo {
-    background-color: #f26419;
+    background-color: transparent;
     border: none;
     padding: 0px;
     margin: 0px 0px 0px 30px;
@@ -71,6 +73,7 @@
     width: 45px;
     height: 45px;
     vertical-align: middle;
+    background-color: transparent;
 }
 
 .mobile-menu-icon {
@@ -141,10 +144,10 @@
 
     .nav-links-container {
         position: absolute;
-        top: 100%;
+        top: 90%;
         left: 0;
         width: 100%;
-        background-color: #f26419;
+        background: linear-gradient(to left, #ff8c00, #ffa500);
         height: 0;
         overflow: hidden;
         transition: height 0.3s ease-in-out;
