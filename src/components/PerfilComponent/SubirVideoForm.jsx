@@ -103,10 +103,17 @@ function SubirVideoForm({ setFormVisible }) {
             required
           >
             <option value="">Selecciona un Género</option>
-            <option value="Acción">Acción</option>
-            <option value="Aventura">Aventura</option>
-            <option value="Comedia">Comedia</option>
-            <option value="Drama">Drama</option>
+            <option value="Terror">Terror</option>
+            <option value="Tutoriales">Tutoriales</option>
+            <option value="Vlogs">Vlogs</option>
+            <option value="Videojuegos">Videojuegos</option>
+            <option value="Musica">Musica</option>
+            <option value="Gameplays">Gameplays</option>
+            <option value="Trailers">Trailers</option>
+            <option value="Reseñas de productos">Reseñas de productos</option>
+            <option value="Unboxing">Unboxing</option>
+            <option value="Vídeos formativos">Vídeos formativos</option>
+            <option value="Anime">Anime</option>
           </select>
 
           <br />

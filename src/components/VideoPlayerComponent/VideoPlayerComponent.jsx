@@ -14,7 +14,7 @@ const VideoPlayerComponent = ({ random }) => {
   const [comments, setComments] = useState([]);
   const [newComment, setNewComment] = useState("");
   const [rating, setRating] = useState(0);
-  const [starAnimation, setStarAnimation] = useState(false);
+  const [views, setViews] = useState(0); // Estado para almacenar las visitas
 
   useEffect(() => {
     const fetchVideoData = async () => {
@@ -24,6 +24,10 @@ const VideoPlayerComponent = ({ random }) => {
           const videos = await response.json();
           const randomVideo = videos[Math.floor(Math.random() * videos.length)];
           setVideoData(randomVideo);
+          setViews(randomVideo.views);
+
+          // Incrementar vistas para el video aleatorio
+          await incrementViews(randomVideo.idvideo);
 
           const creatorResponse = await fetch(`http://localhost:5000/users/${randomVideo.creatorId}`);
           const creatorData = await creatorResponse.json();
@@ -36,6 +40,10 @@ const VideoPlayerComponent = ({ random }) => {
           const response = await fetch(`http://localhost:5000/videos/${id}`);
           const data = await response.json();
           setVideoData(data);
+          setViews(data.views);
+
+          // Incrementar vistas para el video específico
+          await incrementViews(data.idvideo);
 
           const creatorResponse = await fetch(`http://localhost:5000/users/${data.creatorId}`);
           const creatorData = await creatorResponse.json();
@@ -53,6 +61,21 @@ const VideoPlayerComponent = ({ random }) => {
     fetchVideoData();
   }, [id, random, location.pathname]);
 
+  // Función para incrementar el contador de vistas
+  const incrementViews = async (videoId) => {
+    try {
+      const response = await fetch(`http://localhost:5000/videos/increment-views/${videoId}`, {
+        method: "POST",
+      });
+      const data = await response.json();
+      if (data.views !== undefined) {
+        setViews(data.views);
+      }
+    } catch (error) {
+      console.error("Error al incrementar las visitas:", error);
+    }
+  };
+
   const handleAddComment = async () => {
     if (newComment.trim() && user) {
       try {
@@ -68,18 +91,9 @@ const VideoPlayerComponent = ({ random }) => {
 
         if (response.ok) {
           const savedComment = await response.json();
-          const newCommentData = { ...savedComment, User: { name: user.name }, animation: true };
+          const newCommentData = { ...savedComment, User: { name: user.name } };
           setComments([newCommentData, ...comments]);
           setNewComment("");
-
-          setTimeout(() => {
-            setComments((prevComments) =>
-              prevComments.map((comment) => ({
-                ...comment,
-                animation: false,
-              }))
-            );
-          }, 1000);
         }
       } catch (error) {
         console.error("Error al guardar el comentario:", error);
@@ -102,11 +116,7 @@ const VideoPlayerComponent = ({ random }) => {
         });
 
         if (response.ok) {
-          setStarAnimation(true);
-
-          setTimeout(() => {
-            setStarAnimation(false);
-          }, 500);
+          console.log("Puntaje guardado exitosamente");
         } else {
           console.error("Error al guardar el puntaje:", await response.text());
         }
@@ -131,7 +141,8 @@ const VideoPlayerComponent = ({ random }) => {
         <h2 className="video-title">{videoData.title}</h2>
         <p className="video-creator">Subido por: {creatorName}</p>
         <p className="video-description">{videoData.descripcion}</p>
-        <div className={`star-rating ${starAnimation ? "animated" : ""}`}>
+        <p>Visitas: {views}</p> {/* Mostrar contador de visitas */}
+        <div className="star-rating">
           <ReactStars
             count={5}
             value={rating}
@@ -158,10 +169,7 @@ const VideoPlayerComponent = ({ random }) => {
         <div className="comments-list">
           {comments.length > 0 ? (
             comments.map((comment, index) => (
-              <div
-                key={index}
-                className={`comment ${comment.animation ? "fade-in" : ""}`}
-              >
+              <div key={index} className="comment">
                 <p className="comment-user"><strong>{comment.User?.name || "Usuario desconocido"}</strong> - <span className="comment-date">{new Date(comment.fecha).toLocaleString()}</span></p>
                 <p className="comment-text">{comment.comentario}</p>
               </div>
