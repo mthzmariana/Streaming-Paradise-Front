@@ -62,7 +62,7 @@ function NavbarComponent({ toggleTheme, darkMode }) {  // Recibimos toggleTheme 
         
         <div className="nav-links-container">
           <div className="nav-links center-links">
-            <a href="/catalogo">Contenido</a>
+            <a href="/catalogo">Videos</a>
             <a href="/sorprendeme">Sorpréndeme</a>
             <a href="/paquetes">Paquetes</a>
             <a href="/contacto">Contactonos</a>

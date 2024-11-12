@@ -1,14 +1,17 @@
+// CatalogoComponent.jsx
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import FilterBarComponent from "./FilterBarComponent";
 import "./CatalogoComponent.css";
 
 const CatalogoComponent = ({ handleFooter }) => {
   const [videos, setVideos] = useState([]);
-  const [viewedVideos, setViewedVideos] = useState(new Set()); // Estado para los videos vistos
+  const [viewedVideos, setViewedVideos] = useState(new Set());
+  const [selectedGenre, setSelectedGenre] = useState("Todos los Géneros");
+  const [filter, setFilter] = useState("masVistos");
   const navigate = useNavigate();
 
-  // Cargar videos y videos vistos desde localStorage al montar el componente
   useEffect(() => {
     const fetchVideos = async () => {
       try {
@@ -21,23 +24,39 @@ const CatalogoComponent = ({ handleFooter }) => {
 
     fetchVideos();
 
-    // Cargar videos vistos desde localStorage
     const viewedVideosData = JSON.parse(localStorage.getItem("viewedVideos")) || [];
     setViewedVideos(new Set(viewedVideosData));
   }, []);
 
-  useEffect(() => {
-    handleFooter(false);
-    return () => handleFooter(true);
-  }, [handleFooter]);
+  const applyFilters = () => {
+    let filteredVideos = videos;
 
-  // Función para manejar el clic en un video
+    if (selectedGenre !== "Todos los Géneros") {
+      filteredVideos = filteredVideos.filter(video => video.genero === selectedGenre);
+    }
+
+    if (filter === "masVistos") {
+      filteredVideos = [...filteredVideos].sort((a, b) => b.views - a.views);
+    } else if (filter === "menosVistos") {
+      filteredVideos = [...filteredVideos].sort((a, b) => a.views - b.views);
+    }
+
+    return filteredVideos;
+  };
+
+  const handleGenreChange = (genre) => {
+    setSelectedGenre(genre);
+  };
+
+  const handleFilterChange = (filterType) => {
+    setFilter(filterType);
+  };
+
   const handleVideoClick = (id) => {
-    markAsViewed(id); // Marcar como visto
+    markAsViewed(id);
     navigate(`/video/${id}`);
   };
 
-  // Función para marcar un video como visto
   const markAsViewed = (videoId) => {
     const updatedViewedVideos = new Set(viewedVideos);
     updatedViewedVideos.add(videoId);
@@ -45,15 +64,27 @@ const CatalogoComponent = ({ handleFooter }) => {
     localStorage.setItem("viewedVideos", JSON.stringify(Array.from(updatedViewedVideos)));
   };
 
+  const filteredVideos = applyFilters();
+
   return (
-    <div className="canvas">
+    <div className="container-pel">
+      {/* Colocar la barra de filtros en un div específico */}
+      <div className="filter-bar-container">
+        <FilterBarComponent 
+          onGenreChange={handleGenreChange}
+          onFilterChange={handleFilterChange}
+        />
+      </div>
+
+      {/* Contenido de los videos */}
       <div id="hits">
-        {videos.map((video, index) => {
-          const isViewed = viewedVideos.has(video.idvideo); // Verifica si el video ha sido visto
+        {filteredVideos.map((video, index) => {
+          const isViewed = viewedVideos.has(video.idvideo);
           return (
-            <article
-              key={index}
-              className={`video-card ${isViewed ? "viewed" : ""}`} // Añade una clase CSS si el video ya fue visto
+            <article 
+              key={index} 
+              className={`video-card ${isViewed ? "viewed" : ""}`} 
+              onClick={() => handleVideoClick(video.idvideo)}
             >
               <iframe
                 className="video-frame"
@@ -64,13 +95,7 @@ const CatalogoComponent = ({ handleFooter }) => {
                 allowFullScreen
               ></iframe>
               <div className="video-meta">
-                <h3
-                  className="video-title"
-                  onClick={() => handleVideoClick(video.idvideo)}
-                  style={{ cursor: "pointer", color: isViewed ? "gray" : "blue", textDecoration: "underline" }}
-                >
-                  {video.title}
-                </h3>
+                <h3 className="video-title">{video.title}</h3>
                 <p className="video-description">{video.descripcion}</p>
                 <span className="video-genre">{video.genero}</span>
               </div>
@@ -82,7 +107,6 @@ const CatalogoComponent = ({ handleFooter }) => {
   );
 };
 
-// Función para extraer el ID del video de YouTube de una URL
 const getYouTubeID = (url) => {
   const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
   const match = url.match(regExp);
