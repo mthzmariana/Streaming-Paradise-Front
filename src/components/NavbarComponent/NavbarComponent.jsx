@@ -70,9 +70,9 @@ function NavbarComponent({ toggleTheme, darkMode }) {  // Recibimos toggleTheme 
           </div>
 
           <div className="nav-links right-links">
-            <button onClick={toggleTheme} className="theme-toggle-btn">
+            {/* <button onClick={toggleTheme} className="theme-toggle-btn">
               {darkMode ? "Modo Claro" : "Modo Oscuro"}
-            </button>
+            </button> */}
 
             {user ? (
               <div className="profile-dropdown">

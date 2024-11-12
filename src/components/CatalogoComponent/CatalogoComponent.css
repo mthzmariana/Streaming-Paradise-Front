@@ -1,5 +1,6 @@
 /* Contenedor principal */
 .container-pel {
+  background-color: #111; /* Fondo oscuro para todo el contenedor */
   display: flex;
   flex-direction: column;
 }

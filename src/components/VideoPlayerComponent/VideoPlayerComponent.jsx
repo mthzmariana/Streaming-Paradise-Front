@@ -161,7 +161,7 @@ const VideoPlayerComponent = ({ random }) => {
           <p>Calificación: {rating} estrellas</p>
         </div>
         <div className="comments-section">
-          <h3>Comentarios</h3>
+          <h3 >Comentarios</h3>
           <div className="add-comment">
             <input
               type="text"
