@@ -40,7 +40,7 @@
     font-family: 'Figtree-Medium', sans-serif;
 }
 
-.btn-cerrar-sesion-nav {
+/* .btn-cerrar-sesion-nav {
     display: flex;
     align-items: center;
     background-color: #00063d;
@@ -60,7 +60,7 @@
 
 .btn-cerrar-sesion-nav svg {
     margin-right: 5px;
-}
+} */
 
 .MiniLogo-admin {
     background-color: #f26419;

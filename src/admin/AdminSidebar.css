@@ -7,13 +7,13 @@
   top: 0;
   left: 0;
   z-index: 999;
-  padding-top: 2rem; /* Agregar espacio superior para bajar el contenido */
+  padding-top: 2rem; 
 }
 
 ul {
   list-style-type: none; 
   padding: 0;
-  margin: 1rem 0; /* Añadir un margen superior y debajo de la lista */
+  margin: 1rem 0; 
 }
 
 .li-sidebar {
@@ -81,7 +81,7 @@ ul {
  
 }
 
-.cerrar-sesion {
+/* .cerrar-sesion {
   position: absolute;
   bottom: 20px;
   width: 100%;
@@ -99,7 +99,8 @@ ul {
   width: 100%;
   padding: 0.5rem 1rem;
   text-align: left;
-}
+} */
 .ml-4 {
-  margin-left: 1.5rem; /* Aumentar espacio */
+  margin-left: 1.5rem;
 }
+
