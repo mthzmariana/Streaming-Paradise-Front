@@ -18,10 +18,10 @@ import axios from 'axios';
 const AdminSidebar = () => {
   const { user, setUser } = useUser();
   const navigate = useNavigate();
-  const [isExpanded, setIsExpanded] = useState(false);
+  const [isExpanded, setIsExpanded] = useState(null);
 
   const toggleSidebar = () => {
-    setIsExpanded(prevState => !prevState); // Asegúrate de que este estado cambia correctamente
+    setIsExpanded(!isExpanded);
   };
 
   const handleLogout = async (event) => {
@@ -46,12 +46,10 @@ const AdminSidebar = () => {
   };
 
   return (
-    <div className={`admin-sidebar ${isExpanded ? 'expanded' : ''}`}>
-      <button className="expand-button" onClick={toggleSidebar}>
+    <div className={`admin-sidebar ${isExpanded ? 'expanded-ad' : "collapsed-ad"}`}>
+      <button className="expand-button-ad" onClick={toggleSidebar}>
         {isExpanded ? '<<' : '>>'}
       </button>
-      <br />
-      <br />
       <ul className="mt-6">
         <li className="li-sidebar">
           <NavLink to="/admin/" className={({ isActive }) => (isActive ? 'active' : '')}>
@@ -101,6 +99,7 @@ const AdminSidebar = () => {
             <span className="ml-4">Ofertas</span>
           </NavLink>
         </li>
+        <br />
         <li className="li-sidebar">
           <NavLink to="/admin/logout" onClick={handleLogout} className="logout-link">
             <IoLogOutOutline className="icon" />
