@@ -138,6 +138,24 @@
     display: block;
 }
 
+/* Nuevo botón de alternancia de tema */
+.theme-toggle-btn {
+    background: none;
+    border: 2px solid #ffffff;
+    color: #ffffff;
+    font-size: 16px;
+    padding: 8px 12px;
+    cursor: pointer;
+    border-radius: 20px;
+    transition: background-color 0.3s, color 0.3s;
+    margin-right: 15px;
+}
+
+.theme-toggle-btn:hover {
+    background-color: #ffffff;
+    color: #f26419;
+}
+
 @media screen and (max-width: 768px) {
     .mobile-menu-icon {
         display: block;
@@ -205,7 +223,7 @@
         color: #ffffff;
         text-decoration: none;
         padding: 10px 15px;
-        display:flex;
+        display: flex;
         font-size: 16px;
         transition: background-color 0.3s ease;
     }

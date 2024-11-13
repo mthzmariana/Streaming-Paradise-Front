@@ -1,6 +1,6 @@
 import "./App.css";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { UserProvider } from "./contexts/UserContext";
 import AdminTemplate from './templates/AdminTemplate';
 import HomeComponent from "./components/HomeComponent/HomeComponent";
@@ -26,24 +26,30 @@ import Calificaciones from './components/PerfilComponent/Calificaciones';
 import TopConsumidores from './components/PerfilComponent/TopConsumidores';
 import EditarUsuarioComponent from "./components/PerfilComponent/EditarUsuarioComponent";
 
-
 function App() {
   const [navbarFlag, setNavbarFlag] = useState(true);
   const [footerFlag, setFooterFlag] = useState(true);
+  const [darkMode, setDarkMode] = useState(false);
+
+  const toggleTheme = () => {
+    setDarkMode(!darkMode);
+  };
+
+  useEffect(() => {
+    document.body.className = darkMode ? "dark-mode" : "light-mode";
+  }, [darkMode]);
 
   return (
     <UserProvider>
       <Router>
         <Routes>
-          {/* Rutas del administrador aisladas en "/admin/*" */}
-          <Route path="/admin/*" element={<ProtectedRoute  element={<AdminTemplate />} requiredRoles={[1]} />} />
+          <Route path="/admin/*" element={<ProtectedRoute element={<AdminTemplate />} requiredRoles={[1]} />} />
           <Route path="/sinpermiso" element={<SinPermiso />} />
-          {/* Rutas para el sitio principal */}
           <Route
             path="*"
             element={
               <>
-                {navbarFlag && <NavbarComponent />}
+                {navbarFlag && <NavbarComponent toggleTheme={toggleTheme} darkMode={darkMode} />}
                 <div>
                   <Routes>
                     <Route path="/" element={<HomeComponent />} />
@@ -54,7 +60,8 @@ function App() {
                     <Route path="/upload" element={<UploadVideoComponent />} />
                     <Route path="/catalogo" element={<CatalogoComponent handleFooter={setFooterFlag} />} />
                     <Route path="/contacto" element={<ContactoComponent />} />
-                    <Route path="/video" element={<VideoPlayerComponent videoUrl="https://www.youtube.com/watch?v=dQw4w9WgXcQ" />} />
+                    <Route path="/video/:id" element={<VideoPlayerComponent />} />
+                    <Route path="/sorprendeme" element={<VideoPlayerComponent random={true} />} />
                     <Route path="/paquetes" element={<PaquetesComponent />} />
                     <Route path="/ofertashome" element={<HomeOfertaComponent />} />
                     <Route path="/perfil/novato" element={<PerfilNovato />} />
@@ -64,7 +71,6 @@ function App() {
                     <Route path="/calificaciones" element={<Calificaciones />} />
                     <Route path="/top-consumidores" element={<TopConsumidores />} />
                     <Route path="/editar/:id" element={<EditarUsuarioComponent />} />
-                    
                   </Routes>
                 </div>
                 {footerFlag && <FooterComponent />}
