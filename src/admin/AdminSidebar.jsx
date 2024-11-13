@@ -11,7 +11,9 @@ import {
   IoOptionsOutline,
   IoTicketOutline,
   IoLockClosedOutline,
-  IoPodiumOutline
+  IoPodiumOutline,
+  IoChevronBackOutline, 
+  IoChevronForwardOutline
 } from 'react-icons/io5';
 import axios from 'axios';
 
@@ -48,7 +50,7 @@ const AdminSidebar = () => {
   return (
     <div className={`admin-sidebar ${isExpanded ? 'expanded-ad' : "collapsed-ad"}`}>
       <button className="expand-button-ad" onClick={toggleSidebar}>
-        {isExpanded ? '<<' : '>>'}
+        {isExpanded ? <IoChevronBackOutline /> : <IoChevronForwardOutline />}
       </button>
       <ul className="mt-6">
         <li className="li-sidebar">
