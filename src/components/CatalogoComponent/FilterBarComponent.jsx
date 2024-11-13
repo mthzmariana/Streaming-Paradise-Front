@@ -30,7 +30,9 @@ const FilterBarComponent = ({ onGenreChange, onFilterChange }) => {
         ))}
       </select>
       <button onClick={() => onFilterChange("masVistos")}>Más Vistos</button>
-      <button onClick={() => onFilterChange("menosVistos")}>Menos Vistos</button>
+      <button onClick={() => onFilterChange("menosVistos")}>
+        Menos Vistos
+      </button>
     </div>
   );
 };

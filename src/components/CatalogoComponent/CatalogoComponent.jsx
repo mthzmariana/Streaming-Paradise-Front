@@ -24,7 +24,8 @@ const CatalogoComponent = ({ handleFooter }) => {
 
     fetchVideos();
 
-    const viewedVideosData = JSON.parse(localStorage.getItem("viewedVideos")) || [];
+    const viewedVideosData =
+      JSON.parse(localStorage.getItem("viewedVideos")) || [];
     setViewedVideos(new Set(viewedVideosData));
   }, []);
 
@@ -32,7 +33,9 @@ const CatalogoComponent = ({ handleFooter }) => {
     let filteredVideos = videos;
 
     if (selectedGenre !== "Todos los Géneros") {
-      filteredVideos = filteredVideos.filter(video => video.genero === selectedGenre);
+      filteredVideos = filteredVideos.filter(
+        (video) => video.genero === selectedGenre
+      );
     }
 
     if (filter === "masVistos") {
@@ -61,7 +64,10 @@ const CatalogoComponent = ({ handleFooter }) => {
     const updatedViewedVideos = new Set(viewedVideos);
     updatedViewedVideos.add(videoId);
     setViewedVideos(updatedViewedVideos);
-    localStorage.setItem("viewedVideos", JSON.stringify(Array.from(updatedViewedVideos)));
+    localStorage.setItem(
+      "viewedVideos",
+      JSON.stringify(Array.from(updatedViewedVideos))
+    );
   };
 
   const filteredVideos = applyFilters();
@@ -70,7 +76,7 @@ const CatalogoComponent = ({ handleFooter }) => {
     <div className="container-pel">
       {/* Colocar la barra de filtros en un div específico */}
       <div className="filter-bar-container">
-        <FilterBarComponent 
+        <FilterBarComponent
           onGenreChange={handleGenreChange}
           onFilterChange={handleFilterChange}
         />
@@ -81,9 +87,9 @@ const CatalogoComponent = ({ handleFooter }) => {
         {filteredVideos.map((video, index) => {
           const isViewed = viewedVideos.has(video.idvideo);
           return (
-            <article 
-              key={index} 
-              className={`video-card ${isViewed ? "viewed" : ""}`} 
+            <article
+              key={index}
+              className={`video-card ${isViewed ? "viewed" : ""}`}
               onClick={() => handleVideoClick(video.idvideo)}
             >
               <iframe
@@ -108,7 +114,8 @@ const CatalogoComponent = ({ handleFooter }) => {
 };
 
 const getYouTubeID = (url) => {
-  const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
+  const regExp =
+    /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
   const match = url.match(regExp);
   return match && match[2].length === 11 ? match[2] : null;
 };

@@ -21,7 +21,7 @@ function FooterComponent() {
           </a>
         </div>
         <div className="terminos">
-          <p>Términos y aviso de privacidad,</p>
+          <p>Términos y aviso de privacidad</p>
           <p>Envíanos tus comentarios</p>
         </div>
         <div className="copyright">
