@@ -1,0 +1,116 @@
+/* Contenedor principal de la página del video */
+.canvas {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 20px;
+    background-color: #111;
+  }
+  
+  /* Estilos del contenedor de los videos */
+  #hits {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+  }
+  
+  /* Estilo para cada tarjeta de video */
+.video-card {
+    position: relative; /* Esto permite posicionar el menú dentro de la tarjeta */
+    border: 1px solid #02020225;
+    border-radius: 8px;
+    padding: 15px;
+    width: 350px;
+    background-color: #f3f1f100;
+    color: #fff;
+  }
+  
+/* Ajuste de espacio en la parte superior del contenedor de video */
+.video-player-wrapper {
+    width: 100%;
+    height: 180px;
+    margin-top: 40px; /* Añadido para bajar el video */
+}
+  
+  .video-player {
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+  }
+  
+  /* Estilos para la información del video */
+  .video-meta {
+    margin-top: 10px;
+  }
+  
+  .video-title {
+    font-size: 1.1em;
+    font-weight: bold;
+  }
+  
+  .video-description {
+    font-size: 0.9em;
+    color: #bbb;
+  }
+  
+  .video-genre {
+    font-size: 0.8em;
+    color: #aaa;
+  }
+  
+  /* Estilo para los videos vistos */
+  .video-card.viewed {
+    opacity: 0.6; /* Reduce la opacidad para indicar que fue visto */
+    border: 2px solid #aaa; /* Cambia el color del borde */
+  }
+  
+  .video-title {
+    cursor: pointer;
+    transition: color 0.3s;
+  }
+  
+  .video-title:hover {
+    color: #0056b3; /* Cambia el color al pasar el cursor */
+  }
+ 
+ /* Estilo para el menú de tres puntos */
+.video-card .menu {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    font-size: 20px;
+    color: #000000;
+  }
+  
+  /* Estilo para el menú desplegable */
+  .menu-dropdown {
+    display: none;
+    position: absolute;
+    top: 30px;
+    right: 0;
+    background-color: #333;
+    color: #fff;
+    border-radius: 5px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    width: 150px;
+    z-index: 1000;
+  }
+  
+  .menu-dropdown a {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: #fff;
+  }
+  
+  .menu-dropdown a:hover {
+    background-color: #555;
+  }
+  
+  /* Mostrar el menú al hacer clic en el ícono de tres puntos */
+  .menu-dropdown.open {
+    display: block;
+  }
+  

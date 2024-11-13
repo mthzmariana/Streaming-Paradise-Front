@@ -1,0 +1,70 @@
+/* Fondo del dashboard */
+.dash-perfil-container {
+    padding: 0.9rem;
+    margin-left: 6rem;
+    background-color: #f0f4f8; /* Fondo claro */
+    min-height: 100vh; /* Asegura que cubra toda la pantalla */
+}
+
+/* Contenedor de las gráficas */
+.graficas-perfil-container {
+    display: grid;
+    grid-template-columns: 1fr; /* 1 columna por defecto */
+    gap: 0.8rem;
+    padding: 1rem;
+}
+
+@media (min-width: 900px) { 
+    .graficas-perfil-container {
+        grid-template-columns: 1fr 1fr; /* 2 columnas en pantallas medianas y grandes */
+    }
+}
+
+/* Estilos de las gráficas */
+.chart-perfil-container {
+    background-color: #ffffff; /* Fondo blanco para contrastar */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15); /* Sombra para dar profundidad */
+    border-radius: 12px;
+    padding: 23px;
+    max-width: 600px;
+    margin: 20px auto;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Ajuste del efecto hover */
+.chart-perfil-container:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.25);
+}
+
+/* Título de las gráficas */
+.chart-perfil-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #333333; /* Color más oscuro para contraste */
+    margin-bottom: 1.5rem;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Ajustes de las leyendas */
+.apexcharts-perfil-legend {
+    margin-top: 10px;
+}
+
+.apexcharts-perfil-legend-series {
+    margin: 0 8px;
+}
+
+/* Responsividad para pantallas pequeñas */
+@media (max-width: 768px) {
+    .chart-perfil-container {
+        padding: 16px;
+        max-width: 100%;
+    }
+
+    .chart-perfil-title {
+        font-size: 1.25rem;
+    }
+}

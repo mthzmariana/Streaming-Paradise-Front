@@ -11,7 +11,9 @@ import {
   IoOptionsOutline,
   IoTicketOutline,
   IoLockClosedOutline,
-  IoPodiumOutline
+  IoPodiumOutline,
+  IoTvOutline,
+  IoChatbubbleEllipsesOutline 
 } from 'react-icons/io5';
 import axios from 'axios';
 
@@ -24,24 +26,6 @@ const AdminSidebar = () => {
     setIsExpanded(!isExpanded);
   };
 
-  const handleLogout = async () => {
-    try {
-      const response = await axios.post('http://localhost:5000/users/logout', {
-        remember_token: user.remember_token,
-      });
-      if (response.status === 200) {
-        const confirmLogout = window.confirm('¿Seguro quieres cerrar la sesión?');
-        if (confirmLogout) {
-          setUser(null);
-          alert('Sesión cerrada exitosamente');
-          navigate('/login');
-        }
-      }
-    } catch (error) {
-      console.error('Error al cerrar sesión:', error);
-      alert('Hubo un error al cerrar sesión');
-    }
-  };
 
   return (
     <div className={`admin-sidebar ${isExpanded ? 'expanded' : ''}`}>
@@ -65,7 +49,13 @@ const AdminSidebar = () => {
         </li>
         <li className="li-sidebar">
           <NavLink to="/admin/productos/listado" className={({ isActive }) => (isActive ? 'active' : '')}>
-            <IoCopyOutline className="icon" />
+            <IoCopyOutline  className="icon" />
+            <span className="ml-4">Suscripciónes</span>
+          </NavLink>
+        </li>
+        <li className="li-sidebar">
+          <NavLink to="/admin/catalogo/listado" className={({ isActive }) => (isActive ? 'active' : '')}>
+            <IoTvOutline className="icon" />
             <span className="ml-4">Catálogo</span>
           </NavLink>
         </li>
@@ -85,6 +75,12 @@ const AdminSidebar = () => {
           <NavLink to="/admin/roles/listado" className={({ isActive }) => (isActive ? 'active' : '')}>
             <IoOptionsOutline className="icon" />
             <span className="ml-4">Roles</span>
+          </NavLink>
+        </li>
+        <li className="li-sidebar">
+          <NavLink to="/admin/comentarios/listado" className={({ isActive }) => (isActive ? 'active' : '')}>
+            <IoChatbubbleEllipsesOutline  className="icon" />
+            <span className="ml-4">Comentarios</span>
           </NavLink>
         </li>
         <li className="li-sidebar">

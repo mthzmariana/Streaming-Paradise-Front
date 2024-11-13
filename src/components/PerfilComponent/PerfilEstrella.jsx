@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useUser } from '../../contexts/UserContext';
 import { useNavigate } from 'react-router-dom';
-import { IoVideocamOutline, IoPencilSharp, IoLogOutOutline, IoMailUnreadOutline,IoStarOutline, IoPeopleOutline } from 'react-icons/io5';
+import { IoVideocamOutline, IoPencilSharp, IoPlayCircleOutline , IoMailUnreadOutline,IoStarOutline, IoPeopleOutline, IoBarChartOutline, IoLogOutOutline  } from 'react-icons/io5';
 import axios from 'axios';
 import './PerfilEstrella.css';
 import SubirVideoForm from './SubirVideoForm';
@@ -10,6 +10,9 @@ import EstrellaFoto from '../../assets/imagenes/Estrella-foto.png';
 import Comments from './Comments';
 import Calificaciones from './Calificaciones';
 import TopConsumidores from './TopConsumidores';
+import DashPerfilComponent from './DashPerfilComponent/DashPerfilComponent';
+import MisVideosComponent from './MisVideosComponent/MisVideosComponent';
+
 
 function PerfilEstrella() {
   const { user, setUser } = useUser();
@@ -19,6 +22,8 @@ function PerfilEstrella() {
   const [isCommentsVisible, setCommentsVisible] = useState(false);
   const [isCalificacionesVisible, setCalificacionesVisible] = useState(false);
   const [isTopConsumidoresVisible, setTopConsumidoresVisible] = useState(false);
+  const [isDashPerfilVisible, setDashPerfilVisible] = useState(false);
+  const [isMisVideosVisible, setMisVideosVisible] = useState(false);
 
   const toggleForm = () => {
     setFormVisible(!isFormVisible);
@@ -36,6 +41,13 @@ function PerfilEstrella() {
   const toggleTopConsumidoresForm = () => {
     setTopConsumidoresVisible(!isTopConsumidoresVisible);
   };
+  const toggleDashPerfilForm = () => {
+    setDashPerfilVisible(!isDashPerfilVisible); 
+  };
+  const toggleMisVideosForm = () => {
+    setMisVideosVisible(!isMisVideosVisible); 
+  };
+
 
   const handleLogout = async () => {
     const confirmLogout = window.confirm('¿Seguro quieres cerrar la sesión?');
@@ -59,6 +71,14 @@ function PerfilEstrella() {
   return (
     <div className="perfil-estrella">
       <div className="card-estrella">
+        {/* Ícono de Cerrar Sesión */}
+      <IoLogOutOutline 
+        className="logout-icon" 
+        onClick={handleLogout} 
+        size={30} 
+        color="#00063D" 
+        title="Cerrar Sesión" 
+      />
         <div className="card_load-estrella">
           <img src={EstrellaFoto} alt="Perfil Novato" className="perfil-imagen-estrella" />
         </div>
@@ -73,6 +93,9 @@ function PerfilEstrella() {
             <button className="btn-subir-video-estrella" onClick={toggleForm}>
               <IoVideocamOutline size={20} /> {isFormVisible ? 'Cancelar' : 'Subir Video'}
             </button>
+            <button className="btn-subir-video-estrella" onClick={toggleMisVideosForm}>
+              <IoPlayCircleOutline  size={20} /> {isMisVideosVisible ? 'Cancelar' : 'Mis Videos'}
+            </button>
             <button className="btn-subir-video-estrella" onClick={toggleCommentsForm}>
               <IoMailUnreadOutline size={20} /> {isCommentsVisible ? 'Cancelar' : 'Comentarios'}
             </button>
@@ -82,12 +105,13 @@ function PerfilEstrella() {
             <button className="btn-subir-video-estrella" onClick={toggleTopConsumidoresForm}>
               <IoPeopleOutline size={20} /> {isTopConsumidoresVisible ? 'Cancelar' : 'Consumidores'}
             </button>
+            <button className="btn-subir-video-estrella" onClick={toggleDashPerfilForm}>
+              <IoBarChartOutline  size={20} /> {isDashPerfilVisible ? 'Cancelar' : 'Estadísticas'}
+            </button>
             <button className="btn-editar-perfil-estrella" onClick={toggleEdit}>
               <IoPencilSharp size={20} /> {isEditVisible ? 'Cancelar' : 'Editar Perfil'}
             </button>
-            <button className="btn-cerrar-sesion-estrella" onClick={handleLogout}>
-              <IoLogOutOutline size={20} /> Cerrar Sesión
-            </button>
+            
           </div>
         </div>
       </div>
@@ -97,21 +121,37 @@ function PerfilEstrella() {
           <SubirVideoForm formClass="subir-video-estrella-form-estrella" setFormVisible={setFormVisible} />
         </div>
       )}
+
+      {isMisVideosVisible && (
+        <div className="form-container-estrella">
+          <MisVideosComponent userId={user?.id} setMisVideosVisible={setMisVideosVisible} />
+        </div>
+      )}
+
+
       {isCommentsVisible && (
-        <div className="form-container-artista">
+        <div className="form-container-estrella">
           <Comments userId={user?.id} setCommentsVisible={setCommentsVisible} />
         </div>
       )}
       {isCalificacionesVisible && (
-        <div className="form-container-artista">
+        <div className="form-container-estrella">
           <Calificaciones userId={user?.id} setCalificacionesVisible={setCalificacionesVisible} />
         </div>
       )}
+
        {isTopConsumidoresVisible && (
-        <div className="form-container-artista">
+        <div className="form-container-estrella">
           <TopConsumidores userId={user?.id} setTopConsumidoresVisible={setTopConsumidoresVisible} />
         </div>
       )}
+
+      {isDashPerfilVisible && (
+        <div className="form-container-estrella">
+          <DashPerfilComponent userId={user?.id} setDashPerfilVisible={setDashPerfilVisible} />
+        </div>
+      )}
+
 
       {isEditVisible && (
         <div className="form-container-estrella">
