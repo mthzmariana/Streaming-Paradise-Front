@@ -1,0 +1,70 @@
+.login-page-videoeditar {
+  margin-top: 100px; /* Añade espacio superior para separar el formulario del nav */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - 200px); /* Ajusta la altura del contenedor para evitar que el formulario toque el footer */
+  padding-bottom: 50px;
+}
+
+.formR-videoeditar {
+  position: relative;
+  z-index: 1;
+  background: #FFFFFF;
+  width: 100%;
+  max-width: 500px;
+  padding: 40px;
+  text-align: center;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+  border-radius: 20px;
+  margin-bottom: 20px;
+}
+
+.formR-videoeditar h2 {
+  color: #00063D;
+  margin-bottom: 30px;
+  font-size: 30px;
+  font-weight: 600;
+}
+
+.formR-videoeditar input,
+.formR-videoeditar select {
+  font-family: 'Figtree-Medium', sans-serif;
+  outline: 0;
+  background: #f2f2f2;
+  width: 70%;
+  border: 0;
+  margin: 0 0 15px;
+  padding: 15px;
+  box-sizing: border-box;
+  font-size: 14px;
+  border-radius: 20px;
+}
+
+.button-regis-videoeditar {
+  font-family: 'Figtree-Medium', sans-serif;
+  outline: 0;
+  background: #F6A02D;
+  width: 100%;
+  max-width: 250px;
+  border: 0;
+  padding: 15px;
+  color: #FFFFFF;
+  font-size: 14px;
+  cursor: pointer;
+  border-radius: 25px;
+  text-transform: none;
+}
+.button-cancelar-editarvideo {
+  font-family: 'Figtree-Medium', sans-serif;
+  outline: 0;
+  background: #00063D; /* Color de fondo para el botón "Cancelar" */
+  width: 48%;
+  border: 0;
+  padding: 15px;
+  color: #FFFFFF;
+  font-size: 14px;
+  cursor: pointer;
+  border-radius: 25px; /* Botón completamente redondeado */
+  text-transform: none; /* Quitar mayúsculas */
+}

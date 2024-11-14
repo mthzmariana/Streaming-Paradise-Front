@@ -1,0 +1,47 @@
+/* FilterBarComponent.css */
+.filter-bar {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 10px 20px;
+  background-color: #333;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  justify-content: center;
+}
+
+.filter-bar select {
+  background-color: #444;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.filter-bar button {
+  background-color: #555;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.filter-bar button:hover {
+  background-color: #777;
+}
+
+.filter-bar button.active {
+  background-color: #888;
+  font-weight: bold;
+}
+
+/* Para asegurar espacio debajo del navbar */
+.container-pel {
+  padding-top: 65px;
+  /* Ajusta según el tamaño del navbar */
+}

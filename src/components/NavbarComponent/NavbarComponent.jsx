@@ -44,7 +44,14 @@ function NavbarComponent({ toggleTheme, darkMode }) {  // Recibimos toggleTheme 
       window.location.href = '/admin';
     } else if (user && user.idrol === 2) {
       window.location.href = '/';
-    } else {
+    } 
+    else if (user && user.idrol === 3) {
+      window.location.href ='/perfil/artista';
+    } else if (user && user.idrol === 4) {
+      window.location.href ='/perfil/novato';
+    }else if (user && user.idrol === 5) {
+      window.location.href ='/perfil/estrella';
+    }else {
       console.warn('No se encontró un ID de rol válido para redireccionar.');
     }
   };
@@ -62,7 +69,7 @@ function NavbarComponent({ toggleTheme, darkMode }) {  // Recibimos toggleTheme 
         
         <div className="nav-links-container">
           <div className="nav-links center-links">
-            <a href="/catalogo">Contenido</a>
+            <a href="/catalogo">Videos</a>
             <a href="/sorprendeme">Sorpréndeme</a>
             <a href="/paquetes">Paquetes</a>
             <a href="/contacto">Contacto</a>
@@ -70,15 +77,17 @@ function NavbarComponent({ toggleTheme, darkMode }) {  // Recibimos toggleTheme 
           </div>
 
           <div className="nav-links right-links">
-            <button onClick={toggleTheme} className="theme-toggle-btn">
+            {/* <button onClick={toggleTheme} className="theme-toggle-btn">
               {darkMode ? "Modo Claro" : "Modo Oscuro"}
-            </button>
+            </button> */}
 
             {user ? (
               <div className="profile-dropdown">
                 <span onClick={toggleDropdown} className="profile-name">{user.name}</span>
                 {dropdownVisible && (
+                  
                   <div className="dropdown-menu-profile">
+                     <a onClick={handleProfileClick}>Mi perfil</a>
                     <a onClick={handleLogout}>Cerrar sesión</a>
                   </div>
                 )}

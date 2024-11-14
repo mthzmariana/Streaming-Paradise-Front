@@ -45,9 +45,9 @@ const AdminNav = () => {
       </div>
       <div className="user-info">
         {/* Botón de cerrar sesión antes de la foto */}
-        <button className="btn-cerrar-sesion-nav" onClick={handleLogout}>
+        {/* <button className="btn-cerrar-sesion-nav" onClick={handleLogout}>
           <IoLogOutOutline size={20} /> Cerrar Sesión
-        </button>
+        </button> */}
         <img src={Adminfoto} alt="Perfil" className="profile-image" />
         {user ? (
           <div className="user-details">

@@ -11,16 +11,23 @@
 .card-estrella {
   display: flex;
   align-items: center;
-  width: 1060px;
+  width: 1250px;
   height: 200px;
   background-color: #ffffff;
   border-radius: 12px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
   padding: 20px;
   gap: 20px;
+  position: relative; 
   margin-bottom: 20px; /* Añade margen inferior para separar la tarjeta del formulario */
 }
-
+.logout-icon {
+  position: absolute;
+  top: 10px; /* Ajusta el margen superior */
+  right: 10px; /* Ajusta el margen derecho */
+  cursor: pointer;
+  color: #00063D;
+}
 .form-container-estrella {
   width: 800px; /* Alinea el ancho del formulario con la tarjeta */
   display: flex;

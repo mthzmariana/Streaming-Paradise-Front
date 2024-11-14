@@ -1,33 +1,72 @@
-// ComprasComponent.jsx
 import React, { useState, useEffect } from 'react';
 import ReactApexChart from 'react-apexcharts';
 import axios from 'axios';
-import "./GraficasComponent.css";
+import './GraficasComponent.css';
 
 const ComprasComponent = () => {
     const [chartData, setChartData] = useState({
-        series: [{
-            name: 'Ventas Totales',
-            data: [] // Totales de cada mes
-        }],
+        series: [
+            {
+                name: 'Ventas Totales',
+                data: [], // Datos de ventas
+            }
+        ],
         options: {
             chart: {
-                type: 'line', // Cambiar a línea
-                height: 200,
+                type: 'area', // Cambiar a área
+                height: 230,
+                foreColor: "#ccc",
+                toolbar: {
+                    autoSelected: "pan",
+                    show: false
+                }
             },
+            colors: ["#00BAEC"], // Color de la línea del área
             stroke: {
-                curve: 'smooth', // Hace que la línea sea suave
-                width: 2,
+                width: 3
+            },
+            grid: {
+                borderColor: "#555",
+                clipMarkers: false,
+                yaxis: {
+                    lines: {
+                        show: false
+                    }
+                }
+            },
+            dataLabels: {
+                enabled: false
+            },
+            fill: {
+                gradient: {
+                    enabled: true,
+                    opacityFrom: 0.55,
+                    opacityTo: 0
+                }
+            },
+            markers: {
+                size: 5,
+                colors: ["#000524"],
+                strokeColor: "#00BAEC",
+                strokeWidth: 3
+            },
+            series: [
+                {
+                    name: 'Ventas Totales',
+                    data: [] // Esto será actualizado con los datos de la API
+                }
+            ],
+            tooltip: {
+                theme: "dark"
             },
             xaxis: {
-                categories: [], // Nombres de los últimos 6 meses
+                type: "datetime", // Usar formato de fecha en el eje X
+                categories: [] // Meses
             },
-            colors: ['#FF5733'], // Color de la línea
-            markers: {
-                size: 4, // Tamaño de los puntos en la línea
-                colors: ['#FF5733'], // Color de los puntos
-            },
-           
+            yaxis: {
+                min: 0,
+                tickAmount: 4
+            }
         },
     });
 
@@ -36,10 +75,11 @@ const ComprasComponent = () => {
             .then(response => {
                 const data = response.data;
 
-                // Extraer los datos necesarios de la respuesta
+                // Extraer los datos de ventas por mes
                 const ventasPorMes = data.map(item => item.total_ventas);
-                const meses = data.map(item => item.mes); // Nombres de los meses
+                const meses = data.map(item => new Date(item.mes).getTime()); // Convertir los meses a timestamps para el gráfico
 
+                // Actualizar el estado con los datos obtenidos
                 setChartData(prevData => ({
                     ...prevData,
                     series: [{ ...prevData.series[0], data: ventasPorMes }],
@@ -58,8 +98,8 @@ const ComprasComponent = () => {
             <ReactApexChart
                 options={chartData.options}
                 series={chartData.series}
-                type="line" // Cambiar a línea
-                height="200"
+                type="area" // Cambiar tipo a "area"
+                height="230"
             />
         </div>
     );
