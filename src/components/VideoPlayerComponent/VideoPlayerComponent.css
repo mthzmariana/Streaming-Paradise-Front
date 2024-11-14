@@ -162,6 +162,27 @@
   
   
 }
+.comment-header {
+  display: flex;
+  align-items: center;
+}
+
+.comment-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.comment-user {
+  font-weight: bold;
+}
+
+.comment-text {
+  margin-left: 50px; /* Ajusta el margen si es necesario */
+}
+
+
 
 @keyframes starBounce {
   0% {
