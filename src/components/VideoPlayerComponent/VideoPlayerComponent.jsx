@@ -3,6 +3,7 @@ import { useParams, useLocation, useNavigate } from "react-router-dom";
 import { useUser } from "../../contexts/UserContext";
 import ReactPlayer from "react-player";
 import ReactStars from "react-stars";
+import defaultImage from "../../assets/imagenes/IMG.jpg";
 import "./VideoPlayerComponent.css";
 
 const VideoPlayerComponent = ({ random }) => {
@@ -35,9 +36,8 @@ const VideoPlayerComponent = ({ random }) => {
         setViews(video.views);
         await incrementViews(video.idvideo);
 
-        // Llamar a fetchSuggestions solo si video está definido
         if (video && video.genero) {
-          await fetchSuggestions(video.genero, video.idvideo); // Pasar el idvideo actual para excluirlo en sugerencias
+          await fetchSuggestions(video.genero, video.idvideo);
         }
 
         const creatorResponse = await fetch(`http://localhost:5000/users/${video.creatorId}`);
@@ -53,9 +53,8 @@ const VideoPlayerComponent = ({ random }) => {
     };
 
     fetchVideoData();
-  }, [id, random, location.pathname]); // Ejecuta el efecto cuando el ID del video cambia
+  }, [id, random, location.pathname]);
 
-  // Función para incrementar el contador de vistas
   const incrementViews = async (videoId) => {
     try {
       const response = await fetch(`http://localhost:5000/videos/increment-views/${videoId}`, {
@@ -63,14 +62,13 @@ const VideoPlayerComponent = ({ random }) => {
       });
       const data = await response.json();
       if (data.views !== undefined) {
-        setViews(data.views); // Actualiza el estado de visitas
+        setViews(data.views);
       }
     } catch (error) {
       console.error("Error al incrementar las visitas:", error);
     }
   };
 
-  // Modificar fetchSuggestions para recibir idvideoActual como parámetro
   const fetchSuggestions = async (genre, idvideoActual) => {
     try {
       const response = await fetch(`http://localhost:5000/videos?genero=${genre}&excludeId=${idvideoActual}`);
@@ -161,7 +159,7 @@ const VideoPlayerComponent = ({ random }) => {
           <p>Calificación: {rating} estrellas</p>
         </div>
         <div className="comments-section">
-          <h3 >Comentarios</h3>
+          <h3>Comentarios</h3>
           <div className="add-comment">
             <input
               type="text"
@@ -176,7 +174,12 @@ const VideoPlayerComponent = ({ random }) => {
             {comments.length > 0 ? (
               comments.map((comment, index) => (
                 <div key={index} className="comment">
-                  <p className="comment-user"><strong>{comment.User?.name || "Usuario desconocido"}</strong> - <span className="comment-date">{new Date(comment.fecha).toLocaleString()}</span></p>
+                  <div className="comment-header">
+                    <img src={defaultImage} alt="Imagen de usuario" className="comment-avatar" />
+                    <p className="comment-user">
+                      <strong>{comment.User?.name || "Usuario desconocido"}</strong> - <span className="comment-date">{new Date(comment.fecha).toLocaleString()}</span>
+                    </p>
+                  </div>
                   <p className="comment-text">{comment.comentario}</p>
                 </div>
               ))
@@ -187,7 +190,6 @@ const VideoPlayerComponent = ({ random }) => {
         </div>
       </div>
       
-      {/* Sección de Sugerencias de Video */}
       <div className="suggestions-section">
         <h3>Videos Sugeridos</h3>
         {suggestedVideos.length > 0 ? (
@@ -205,7 +207,6 @@ const VideoPlayerComponent = ({ random }) => {
   );
 };
 
-// Función para obtener el ID de YouTube del video
 const getYouTubeID = (url) => {
   const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
   const match = url.match(regExp);
