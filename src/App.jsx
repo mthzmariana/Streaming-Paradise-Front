@@ -25,6 +25,8 @@ import SubirVideoForm from './components/PerfilComponent/SubirVideoForm';
 import Calificaciones from './components/PerfilComponent/Calificaciones';
 import TopConsumidores from './components/PerfilComponent/TopConsumidores';
 import EditarUsuarioComponent from "./components/PerfilComponent/EditarUsuarioComponent";
+import EditarVideoForm from "./components/PerfilComponent/EditarVideoForm";
+
 
 function App() {
   const [navbarFlag, setNavbarFlag] = useState(true);
@@ -71,6 +73,7 @@ function App() {
                     <Route path="/calificaciones" element={<Calificaciones />} />
                     <Route path="/top-consumidores" element={<TopConsumidores />} />
                     <Route path="/editar/:id" element={<EditarUsuarioComponent />} />
+                    <Route path="/editarvideo/:videoId" element={<EditarVideoForm />} />
                   </Routes>
                 </div>
                 {footerFlag && <FooterComponent />}

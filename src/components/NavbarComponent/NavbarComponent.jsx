@@ -44,7 +44,14 @@ function NavbarComponent({ toggleTheme, darkMode }) {  // Recibimos toggleTheme 
       window.location.href = '/admin';
     } else if (user && user.idrol === 2) {
       window.location.href = '/';
-    } else {
+    } 
+    else if (user && user.idrol === 3) {
+      window.location.href ='/perfil/artista';
+    } else if (user && user.idrol === 4) {
+      window.location.href ='/perfil/novato';
+    }else if (user && user.idrol === 5) {
+      window.location.href ='/perfil/estrella';
+    }else {
       console.warn('No se encontró un ID de rol válido para redireccionar.');
     }
   };
@@ -65,7 +72,7 @@ function NavbarComponent({ toggleTheme, darkMode }) {  // Recibimos toggleTheme 
             <a href="/catalogo">Videos</a>
             <a href="/sorprendeme">Sorpréndeme</a>
             <a href="/paquetes">Paquetes</a>
-            <a href="/contacto">Contactanos</a>
+            <a href="/contacto">Contacto</a>
             <a href="/about">Acerca de</a>
           </div>
 
@@ -78,7 +85,9 @@ function NavbarComponent({ toggleTheme, darkMode }) {  // Recibimos toggleTheme 
               <div className="profile-dropdown">
                 <span onClick={toggleDropdown} className="profile-name">{user.name}</span>
                 {dropdownVisible && (
+                  
                   <div className="dropdown-menu-profile">
+                     <a onClick={handleProfileClick}>Mi perfil</a>
                     <a onClick={handleLogout}>Cerrar sesión</a>
                   </div>
                 )}

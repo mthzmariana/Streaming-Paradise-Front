@@ -14,6 +14,8 @@ import {
   IoPodiumOutline,
   IoChevronBackOutline, 
   IoChevronForwardOutline
+  IoTvOutline,
+  IoChatbubbleEllipsesOutline 
 } from 'react-icons/io5';
 import axios from 'axios';
 
@@ -67,7 +69,13 @@ const AdminSidebar = () => {
         </li>
         <li className="li-sidebar">
           <NavLink to="/admin/productos/listado" className={({ isActive }) => (isActive ? 'active' : '')}>
-            <IoCopyOutline className="icon" />
+            <IoCopyOutline  className="icon" />
+            <span className="ml-4">Suscripciónes</span>
+          </NavLink>
+        </li>
+        <li className="li-sidebar">
+          <NavLink to="/admin/catalogo/listado" className={({ isActive }) => (isActive ? 'active' : '')}>
+            <IoTvOutline className="icon" />
             <span className="ml-4">Catálogo</span>
           </NavLink>
         </li>
@@ -87,6 +95,12 @@ const AdminSidebar = () => {
           <NavLink to="/admin/roles/listado" className={({ isActive }) => (isActive ? 'active' : '')}>
             <IoOptionsOutline className="icon" />
             <span className="ml-4">Roles</span>
+          </NavLink>
+        </li>
+        <li className="li-sidebar">
+          <NavLink to="/admin/comentarios/listado" className={({ isActive }) => (isActive ? 'active' : '')}>
+            <IoChatbubbleEllipsesOutline  className="icon" />
+            <span className="ml-4">Comentarios</span>
           </NavLink>
         </li>
         <li className="li-sidebar">
