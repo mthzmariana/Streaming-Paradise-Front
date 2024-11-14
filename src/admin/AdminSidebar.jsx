@@ -13,7 +13,7 @@ import {
   IoLockClosedOutline,
   IoPodiumOutline,
   IoChevronBackOutline, 
-  IoChevronForwardOutline
+  IoChevronForwardOutline,
   IoTvOutline,
   IoChatbubbleEllipsesOutline 
 } from 'react-icons/io5';
