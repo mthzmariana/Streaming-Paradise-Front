@@ -93,7 +93,7 @@
     position: absolute;
     top: 100%;
     right: 0;
-    background-color: #00063d;
+    background-color: #ffa500;
     color: #ffffff;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
     padding: 10px 0;
@@ -101,6 +101,7 @@
     width: 150px;
     z-index: 1000;
     margin-top: 5px;
+    cursor: pointer;
 }
 
 .dropdown-menu-profile a {

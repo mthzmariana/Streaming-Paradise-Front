@@ -1,18 +1,3 @@
-/* @font-face {
-    font-family: 'Figtree-Bold';
-    src: url('scr/Fonts/Figtree-Bold.ttf') format('truetype');
-}
-
-@font-face {
-    font-family: 'Figtree-Medium';
-    src: url('scr/Fonts/Figtree-Medium.ttf') format('truetype');
-}
-
-@font-face {
-    font-family: 'Figtree-Light';
-    src: url('scr/Fonts/Figtree-Light.ttf') format('truetype');
-} */
-
 .footer {
     align-items: center;
     background-color: #00063d;
@@ -33,14 +18,31 @@
     align-items: center;
 }
 
+.icon-container {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Espacio entre los iconos */
+    margin-top: 5px;
+}
+
 .discord-link {
     color: #5865F2;
-    margin-top: 5px; /* Espacio entre el título y el ícono */
     transition: color 0.3s ease;
 }
 
 .discord-link:hover {
     color: #7289DA;
+}
+
+.heart-icon {
+    color: #ff0000;
+    cursor: pointer;
+    transition: transform 0.2s ease, color 0.3s ease;
+}
+
+.heart-icon:hover {
+    transform: scale(1.2);
+    color: #ff4d4d;
 }
 
 .terminos, .copyright {

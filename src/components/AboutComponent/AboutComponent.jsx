@@ -3,6 +3,11 @@ import "./AboutComponent.css";
 import historiaImage from "../../assets/imagenes/ImgTeam.jpg";
 import queHacemosImage from "../../assets/imagenes/ImgCel.jpg";
 import nosImportasImage from "../../assets/imagenes/ImgPersonas.jpg";
+import Persona1 from "../../assets/imagenes/Persona1.jpg"; // Reemplaza con las imágenes de los integrantes
+import Persona2 from "../../assets/imagenes/Persona2.jpg";
+import Persona3 from "../../assets/imagenes/Persona3.jpg";
+import Persona4 from "../../assets/imagenes/Persona4.jpg";
+import Persona5 from "../../assets/imagenes/Persona5.jpg";
 
 const AboutComponent = () => {
   return (
@@ -62,8 +67,41 @@ const AboutComponent = () => {
           />
         </div>
       </section>
+
+      <section className="team-section">
+        <h2>Nuestro Equipo</h2>
+        <div className="team-members">
+          <div className="team-member">
+            <img src={Persona1} alt="Nombre del Integrante 1" />
+            <h3>Eduardo Uc</h3>
+            <p>Puesto del Integrante 1</p>
+          </div>
+          <div className="team-member">
+            <img src={Persona2} alt="Nombre del Integrante 2" />
+            <h3>Yaneli</h3>
+            <p>Puesto del Integrante 2</p>
+          </div>
+          <div className="team-member">
+            <img src={Persona3} alt="Nombre del Integrante 3" />
+            <h3>Cristian Cetz</h3>
+            <p>Puesto del Integrante 3</p>
+          </div>
+          <div className="team-member">
+            <img src={Persona4} alt="Nombre del Integrante 4" />
+            <h3>M.Martinez</h3>
+            <p>Puesto del Integrante 4</p>
+          </div>
+          <div className="team-member">
+            <img src={Persona5} alt="Nombre del Integrante 5" />
+            <h3>M.E.C.Y</h3>
+            <p>Puesto del Integrante 5</p>
+          </div>
+        </div>
+      </section>
+      
     </div>
   );
 };
+
 
 export default AboutComponent;
