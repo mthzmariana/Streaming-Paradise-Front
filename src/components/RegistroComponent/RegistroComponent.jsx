@@ -47,7 +47,7 @@ const RegistroComponent = ({ handleNavbar, handleFooter }) => {
       const data = await response.json();
       if (response.ok) {
         alert('Registro exitoso');
-        navigate('/login');  // Redirigir a la página de login
+        navigate('/login');
       } else {
         alert(`Error: ${data.message}`);
       }
@@ -147,13 +147,17 @@ const RegistroComponent = ({ handleNavbar, handleFooter }) => {
                 onChange={handleChange}
               >
                 <option value="">Seleccione un género de contenido</option>
-                <option value="Documentales">Documentales</option>
-                <option value="Viajes">Viajes</option>
-                <option value="Comedia">Comedia</option>
                 <option value="Terror">Terror</option>
-                <option value="Música">Música</option>
-                <option value="Artes">Artes</option>
-                <option value="Educativo">Educativo</option>
+                <option value="Tutoriales">Tutoriales</option>
+                <option value="Vlogs">Vlogs</option>
+                <option value="Videojuegos">Videojuegos</option>
+                <option value="Musica">Musica</option>
+                <option value="Gameplays">Gameplays</option>
+                <option value="Trailers">Trailers</option>
+                <option value="Reseñas de productos">Reseñas de productos</option>
+                <option value="Unboxing">Unboxing</option>
+                <option value="Vídeos formativos">Vídeos formativos</option>
+                <option value="Anime">Anime</option>
               </select>
 
               <button type="submit" className="login-button">Registrarse</button>
