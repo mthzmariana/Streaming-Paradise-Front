@@ -25,7 +25,8 @@ import OfertaComponent from '../components/OfertaComponent/OfertaComponent';
 import RegistroOfertaComponent from '../components/RegistroOfertaComponent/RegistroOfertaComponent';
 import EditarOfertaComponent from '../components/EditarOfertaComponent/EditarOfertaComponent';
 import DashboardComponent from '../components/DashboardComponent/DashboardComponent';
-
+import ListadoCatalogoComponent from '../components/ListadoCatalogoComponent/ListadoCatalogoComponent';
+import ListadoComentComponent from '../components/ListadoComentComponent/ListadoComentComponent';
 
 const AdminTemplate = () => {
   return (
@@ -57,6 +58,8 @@ const AdminTemplate = () => {
           <Route path="compras/listado" element={<ProtectedRoute element={<ListadoComprasComponent/>} requiredRoles={[1]} />} />
           <Route path="cupones/listado" element={<ProtectedRoute element={<ListadoCuponesComponent/>} requiredRoles={[1]} />} />
           <Route path="ofertas/listado" element={<ProtectedRoute element={<OfertaComponent/>} requiredRoles={[1]} />} />
+          <Route path="catalogo/listado" element={<ProtectedRoute element={<ListadoCatalogoComponent/>} requiredRoles={[1]} />} />
+          <Route path="comentarios/listado" element={<ProtectedRoute element={<ListadoComentComponent/>} requiredRoles={[1]} />} />
           </Routes>
         </div>
       </div>

@@ -11,20 +11,26 @@ import {
   IoOptionsOutline,
   IoTicketOutline,
   IoLockClosedOutline,
-  IoPodiumOutline
+  IoPodiumOutline,
+  IoChevronBackOutline, 
+  IoChevronForwardOutline,
+  IoTvOutline,
+  IoChatbubbleEllipsesOutline 
 } from 'react-icons/io5';
 import axios from 'axios';
 
 const AdminSidebar = () => {
   const { user, setUser } = useUser();
   const navigate = useNavigate();
-  const [isExpanded, setIsExpanded] = useState(false);
+  const [isExpanded, setIsExpanded] = useState(null);
 
   const toggleSidebar = () => {
     setIsExpanded(!isExpanded);
   };
 
-  const handleLogout = async () => {
+  const handleLogout = async (event) => {
+    event.preventDefault();  // Evita la navegación por defecto del NavLink
+
     try {
       const response = await axios.post('http://localhost:5000/users/logout', {
         remember_token: user.remember_token,
@@ -44,14 +50,12 @@ const AdminSidebar = () => {
   };
 
   return (
-    <div className={`admin-sidebar ${isExpanded ? 'expanded' : ''}`}>
-      <button className="expand-button" onClick={toggleSidebar}>
-        {isExpanded ? '<<' : '>>'}
+    <div className={`admin-sidebar ${isExpanded ? 'expanded-ad' : "collapsed-ad"}`}>
+      <button className="expand-button-ad" onClick={toggleSidebar}>
+        {isExpanded ? <IoChevronBackOutline /> : <IoChevronForwardOutline />}
       </button>
-      <br></br>
-      <br></br>
       <ul className="mt-6">
-      <li className="li-sidebar">
+        <li className="li-sidebar">
           <NavLink to="/admin/" className={({ isActive }) => (isActive ? 'active' : '')}>
             <IoPodiumOutline className="icon" />
             <span className="ml-4">Dash</span>
@@ -65,7 +69,13 @@ const AdminSidebar = () => {
         </li>
         <li className="li-sidebar">
           <NavLink to="/admin/productos/listado" className={({ isActive }) => (isActive ? 'active' : '')}>
-            <IoCopyOutline className="icon" />
+            <IoCopyOutline  className="icon" />
+            <span className="ml-4">Suscripciónes</span>
+          </NavLink>
+        </li>
+        <li className="li-sidebar">
+          <NavLink to="/admin/catalogo/listado" className={({ isActive }) => (isActive ? 'active' : '')}>
+            <IoTvOutline className="icon" />
             <span className="ml-4">Catálogo</span>
           </NavLink>
         </li>
@@ -88,6 +98,12 @@ const AdminSidebar = () => {
           </NavLink>
         </li>
         <li className="li-sidebar">
+          <NavLink to="/admin/comentarios/listado" className={({ isActive }) => (isActive ? 'active' : '')}>
+            <IoChatbubbleEllipsesOutline  className="icon" />
+            <span className="ml-4">Comentarios</span>
+          </NavLink>
+        </li>
+        <li className="li-sidebar">
           <NavLink to="/admin/cupones/listado" className={({ isActive }) => (isActive ? 'active' : '')}>
             <IoTicketOutline className="icon" />
             <span className="ml-4">Cupones</span>
@@ -97,6 +113,13 @@ const AdminSidebar = () => {
           <NavLink to="/admin/ofertas/listado" className={({ isActive }) => (isActive ? 'active' : '')}>
             <IoPricetagsOutline className="icon" />
             <span className="ml-4">Ofertas</span>
+          </NavLink>
+        </li>
+        <br />
+        <li className="li-sidebar">
+          <NavLink to="/admin/logout" onClick={handleLogout} className="logout-link">
+            <IoLogOutOutline className="icon" />
+            <span className="ml-4">Cerrar sesión</span>
           </NavLink>
         </li>
       </ul>

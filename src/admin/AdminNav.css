@@ -2,7 +2,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #f26419;
+    background: linear-gradient(to left, #ff8c00, #ffa500);
     padding: 10px 20px;
     position: fixed;
     top: 0;
@@ -10,6 +10,8 @@
     width: 100%;
     z-index: 1000;
     box-sizing: border-box;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
 }
 
 .logo-container-admin {
@@ -38,7 +40,7 @@
     font-family: 'Figtree-Medium', sans-serif;
 }
 
-.btn-cerrar-sesion-nav {
+/* .btn-cerrar-sesion-nav {
     display: flex;
     align-items: center;
     background-color: #00063d;
@@ -58,7 +60,7 @@
 
 .btn-cerrar-sesion-nav svg {
     margin-right: 5px;
-}
+} */
 
 .MiniLogo-admin {
     background-color: #f26419;
@@ -67,6 +69,7 @@
     margin: 0px;
     cursor: pointer;
     transition: transform 0.3s ease, filter 0.3s ease;
+    background-color: transparent;
 }
 
 .MiniLogo-admin:hover {
@@ -77,4 +80,5 @@
     width: 45px;
     height: 45px;
     vertical-align: middle;
+    background-color: transparent;
 }
