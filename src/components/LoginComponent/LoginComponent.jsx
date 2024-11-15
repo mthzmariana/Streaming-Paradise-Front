@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useUser } from "../../contexts/UserContext";
 import "./LoginComponent.css";
-import Logo from "../../assets/imagenes/Logo.png";
+import Logo from "../../assets/imagenes/Logo.png"; // Importa el logo aquí
 
 const LoginComponent = ({ handleNavbar, handleFooter }) => {
   const [email, setEmail] = useState("");
@@ -22,6 +22,24 @@ const LoginComponent = ({ handleNavbar, handleFooter }) => {
     };
   }, [handleNavbar, handleFooter]);
 
+  const showNotification = (userName) => {
+    if ("Notification" in window && Notification.permission === "granted") {
+      new Notification("Bienvenido de vuelta", {
+        body: `Hola, ${userName}!`,
+        icon: Logo, // Usa el logo como icono en la notificación
+      });
+    } else if ("Notification" in window && Notification.permission !== "denied") {
+      Notification.requestPermission().then((permission) => {
+        if (permission === "granted") {
+          new Notification("Bienvenido de vuelta", {
+            body: `Hola, ${userName}!`,
+            icon: Logo,
+          });
+        }
+      });
+    }
+  };
+
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
@@ -29,12 +47,13 @@ const LoginComponent = ({ handleNavbar, handleFooter }) => {
       
       if (response.data && response.data.rememberToken && response.data.user) {
         const { rememberToken, user } = response.data;
-        
+
         localStorage.setItem("token", rememberToken);
         localStorage.setItem("user", JSON.stringify(user));
         setUser(user);
 
-        alert("Inicio de sesión exitoso");
+        // Mostrar notificación
+        showNotification(user.name);
 
         if (user.idrol === 1) {
           navigate("/admin");
@@ -44,9 +63,9 @@ const LoginComponent = ({ handleNavbar, handleFooter }) => {
           navigate("/perfil/artista");
         } else if (user.idrol === 4) {
           navigate("/perfil/novato");
-        }else if (user.idrol === 5) {
+        } else if (user.idrol === 5) {
           navigate("/perfil/estrella");
-        }else {
+        } else {
           console.error("Rol de usuario no reconocido");
           setError("Rol de usuario no reconocido");
         }
@@ -70,22 +89,26 @@ const LoginComponent = ({ handleNavbar, handleFooter }) => {
           <h2 className="log-title">Streaming Paradise</h2>
           <div className="log-form-container">
             <form className="log-form" onSubmit={handleLogin}>
-              <input
-                type="email"
-                placeholder="Email"
-                className="log-input"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                required
-              />
-              <input
-                type="password"
-                placeholder="Password"
-                className="log-input"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                required
-              />
+              <div className="input-container" style={{ position: "relative" }}>
+                <input
+                  type="email"
+                  placeholder="Ingrese correo"
+                  className="log-input"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
+                />
+              </div>
+              <div className="input-container" style={{ position: "relative" }}>
+                <input
+                  type="password"
+                  placeholder="Ingrese contraseña"
+                  className="log-input"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  required
+                />
+              </div>
               <button type="submit" className="login-button">
                 Iniciar Sesión
               </button>

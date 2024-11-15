@@ -12,13 +12,8 @@ body {
 }
 
 .light-mode {
-  background-color: #ffffff;
+  background-color: #f8f8f8;
   color: #000000;
-}
-
-.dark-mode {
-  background-color: #121212;
-  color: #ffffff;
 }
 
 .navbar {
