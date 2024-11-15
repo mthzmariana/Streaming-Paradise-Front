@@ -1,11 +1,4 @@
 .login-body {
-    /* margin: 0;
-    padding: 0;
-    height: 100vh;
-    background-color: #12193f;
-    display: flex;
-    justify-content: center;
-    align-items: center; */
     margin: 0;
     padding: 0;
     height: 100vh;
@@ -16,6 +9,20 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative; /* Necesario para posicionar el pseudo-elemento */
+    overflow: hidden;
+}
+
+/* Capa de sombra sobre la imagen de fondo */
+.login-body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Color oscuro semi-transparente */
+    z-index: 0; /* Coloca la sombra detrás del contenido */
 }
 
 .login-container {
@@ -26,7 +33,12 @@
     width: 900px;
     height: 400px;
     overflow: hidden;
+    position: relative;
+    z-index: 1; /* Asegura que el contenido esté por encima de la sombra */
 }
+
+/* Resto del CSS... */
+
 
 .log-left-side {
     display: flex;

@@ -34,8 +34,6 @@ const LoginComponent = ({ handleNavbar, handleFooter }) => {
         localStorage.setItem("user", JSON.stringify(user));
         setUser(user);
 
-        alert("Inicio de sesión exitoso");
-
         if (user.idrol === 1) {
           navigate("/admin");
         } else if (user.idrol === 2) {
@@ -44,9 +42,9 @@ const LoginComponent = ({ handleNavbar, handleFooter }) => {
           navigate("/perfil/artista");
         } else if (user.idrol === 4) {
           navigate("/perfil/novato");
-        }else if (user.idrol === 5) {
+        } else if (user.idrol === 5) {
           navigate("/perfil/estrella");
-        }else {
+        } else {
           console.error("Rol de usuario no reconocido");
           setError("Rol de usuario no reconocido");
         }
