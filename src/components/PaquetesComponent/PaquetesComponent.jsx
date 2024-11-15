@@ -3,10 +3,66 @@ import './PaquetesComponent.css';
 import Paq1 from '../../assets/imagenes/Paq1.png';
 import Paq2 from '../../assets/imagenes/Paq2.png';
 import Paq3 from '../../assets/imagenes/Paq3.png';
+import { useUser } from '../../contexts/UserContext';
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 const PaquetesComponent = () => {
   const [selectedPackage, setSelectedPackage] = useState(null);
-  const [purchaseDetails, setPurchaseDetails] = useState(null); // Guardar detalles de la compra
+  const { user, setUser } = useUser();
+  const navigate = useNavigate();
+  const [userId, setUserId] = useState(null);
+
+  // Efecto para obtener el ID del usuario del localStorage
+  useEffect(() => {
+    const userFromStorage = JSON.parse(localStorage.getItem('user'));
+    if (userFromStorage && userFromStorage.id) {
+      setUserId(userFromStorage.id);
+      console.log("User ID found in localStorage:", userFromStorage.id);
+    }
+  }, []);
+
+  const handlePaymentSuccess = async (details, selectedPackage) => {
+    try {
+      const roleMapping = {
+        '50': 3,  // Novato
+        '100': 4, // Artista
+        '200': 5  // Estrella
+      };
+  
+      const transactionData = {
+        email_address: details.payer.email_address,
+        name: `${details.payer.name.given_name} ${details.payer.name.surname}`,
+        transaction_id: details.id,
+        status: details.status,
+        amount: details.purchase_units[0].amount.value,
+        currency: details.purchase_units[0].amount.currency_code,
+        payer_id: details.payer.payer_id,
+        userId: userId,
+        new_role: roleMapping[selectedPackage]
+      };
+  
+      console.log("Sending transaction data:", transactionData);
+  
+      // Enviar la transacción y actualizar el rol en el backend
+      const paymentResponse = await axios.post('http://localhost:5000/payments/capture', transactionData);
+  
+      if (paymentResponse.status === 200) {
+        const updatedUser = { ...user, idrol: roleMapping[selectedPackage] };
+        localStorage.setItem('user', JSON.stringify(updatedUser));
+        setUser(updatedUser);
+  
+        alert('¡Compra exitosa! Tu cuenta ha sido actualizada.');
+        closeModal();  // Cierra el modal de PayPal
+        navigate('/'); // Redirige al home
+      } else {
+        console.error("Payment response was not 200:", paymentResponse);
+      }
+    } catch (error) {
+      console.error('Error durante el proceso de compra:', error);
+      alert('Hubo un error durante el proceso de compra. Por favor, intenta nuevamente.');
+    }
+  };
 
   useEffect(() => {
     if (selectedPackage) {
@@ -25,44 +81,14 @@ const PaquetesComponent = () => {
                 }],
               });
             },
-            onApprove: (data, actions) => {
-              return actions.order.capture().then(details => {
-                // Guardar detalles de la compra en el estado
-                setPurchaseDetails(details);
-                console.log('Detalles de la transacción:', details);
-
-                // Crear los datos que vas a enviar al backend usando los mismos datos que muestras en el frontend
-                const transactionData = {
-                  email_address: details.payer.email_address,
-                  name: `${details.payer.name.given_name} ${details.payer.name.surname}`,
-                  transaction_id: details.id,
-                  status: details.status,
-                  amount: details.purchase_units[0].amount.value,
-                  currency: details.purchase_units[0].amount.currency_code,
-                  payer_id: details.payer.payer_id,
-                };
-
-                // Enviar una solicitud POST al backend con los detalles de la compra
-                fetch('http://localhost:5000/payments/capture', {  // Cambia esta URL por la de tu backend
-                  method: 'POST',
-                  headers: {
-                    'Content-Type': 'application/json',
-                  },
-                  body: JSON.stringify(transactionData),
-                })
-                .then(response => response.json())
-                .then(data => {
-                  console.log('Respuesta del backend:', data);
-                })
-                .catch(error => {
-                  console.error('Error al enviar los datos al backend:', error);
-                });
-              });
+            onApprove: async (data, actions) => {
+              const details = await actions.order.capture();
+              console.log("Payment approved, details:", details);
+              handlePaymentSuccess(details, selectedPackage);
             },
           }).render(containerId);
         };
 
-        // Crear el botón PayPal para el paquete seleccionado
         if (selectedPackage === '50') createPaypalButton('50.00', '#paypal-button-container');
         if (selectedPackage === '100') createPaypalButton('100.00', '#paypal-button-container');
         if (selectedPackage === '200') createPaypalButton('200.00', '#paypal-button-container');
@@ -85,18 +111,6 @@ const PaquetesComponent = () => {
           </div>
         </div>
       )}
-
-      {/* Mostrar detalles de la compra después de que se complete 
-      {purchaseDetails && (
-        <div className="purchase-details">
-          <h3>Detalles de la Compra</h3>
-          <p><strong>Comprador:</strong> {purchaseDetails.payer.name.given_name} {purchaseDetails.payer.name.surname}</p>
-          <p><strong>Email:</strong> {purchaseDetails.payer.email_address}</p>
-          <p><strong>ID de la transacción:</strong> {purchaseDetails.id}</p>
-          <p><strong>Estado:</strong> {purchaseDetails.status}</p>
-          <p><strong>Monto:</strong> {purchaseDetails.purchase_units[0].amount.value} {purchaseDetails.purchase_units[0].amount.currency_code}</p>
-        </div>
-      )} */}
 
       {/* Paquete Novato */}
       <div className='cardp novato'>
